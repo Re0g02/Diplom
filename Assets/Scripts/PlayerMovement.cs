@@ -4,7 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     private Rigidbody2D _playerRb;
-    [HideInInspector] public Vector2 moveDirection;
+    private Vector2 moveDirection;
     void Start()
     {
         _playerRb = GetComponent<Rigidbody2D>();
@@ -29,5 +29,9 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayer()
     {
         _playerRb.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+    }
+
+    public Vector2 GetMoveDirection(){
+        return moveDirection;
     }
 }

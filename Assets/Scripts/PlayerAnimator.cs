@@ -15,7 +15,7 @@ public class PlayerAnimator : MonoBehaviour
 
     void Update()
     {
-        if (_playerMovementScript.moveDirection.x != 0 || _playerMovementScript.moveDirection.y != 0)
+        if (_playerMovementScript.GetMoveDirection().x != 0 || _playerMovementScript.GetMoveDirection().y != 0)
         {
             _playerAnimator.SetBool("IsMoving", true);
             FlipSpriteToMoveDirection();
@@ -28,8 +28,8 @@ public class PlayerAnimator : MonoBehaviour
     {
         bool spriteDirection;
 
-        if (_playerMovementScript.moveDirection.x < 0) spriteDirection = true;
-        else if (_playerMovementScript.moveDirection.x > 0) spriteDirection = false;
+        if (_playerMovementScript.GetMoveDirection().x < 0) spriteDirection = true;
+        else if (_playerMovementScript.GetMoveDirection().x > 0) spriteDirection = false;
         else spriteDirection = _playerSpriteRenderer.flipX;
 
         return spriteDirection;
