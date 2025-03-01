@@ -5,9 +5,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private Rigidbody2D _playerRb;
     private Vector2 moveDirection;
+    [HideInInspector] public Vector2 lastMoveVector;
     void Start()
     {
         _playerRb = GetComponent<Rigidbody2D>();
+        lastMoveVector = new Vector2(1, 0f);
     }
 
     private void Update()
@@ -24,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
         var moveX = Input.GetAxisRaw("Horizontal");
         var moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
+
+        if (moveX != 0 || moveY != 0)
+            lastMoveVector = new Vector2(moveX, moveY).normalized;
     }
 
     void MovePlayer()
@@ -31,7 +36,8 @@ public class PlayerMovement : MonoBehaviour
         _playerRb.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 
-    public Vector2 GetMoveDirection(){
+    public Vector2 GetMoveDirection()
+    {
         return moveDirection;
     }
 }

@@ -9,6 +9,7 @@ public class MapController : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private float _chunkCheckRadius;
     [SerializeField] private LayerMask _terrainMask;
+    [SerializeField] private GameObject _ChunksContainer;
     [HideInInspector] public GameObject currentChunk;
     private PlayerMovement playerMovementScript;
 
@@ -53,12 +54,13 @@ public class MapController : MonoBehaviour
         var randomChunkIndex = UnityEngine.Random.Range(0, _chunkPrefabs.Count);
         LastestChunk = Instantiate(_chunkPrefabs[randomChunkIndex], chunkSpawnPosition, quaternion.identity);
         spawnedChunks.Add(LastestChunk);
+        LastestChunk.transform.parent = _ChunksContainer.transform;
     }
 
     void OptimizateChunks()
     {
         OptimizationCd -= Time.deltaTime;
-        
+
         if (OptimizationCd > 0)
             return;
         else
