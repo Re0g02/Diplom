@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 250670061473401294}
   - component: {fileID: 17577936948468988}
   - component: {fileID: 641659774757168641}
-  - component: {fileID: 3376407287110649042}
   - component: {fileID: -1375734410715590013}
   - component: {fileID: 8024931590159449298}
+  - component: {fileID: 6542514804404750357}
+  - component: {fileID: 3376407287110649042}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -113,6 +114,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1375734410715590013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742590444071634013}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d01893b4ea7e1fd41aacaafb0426de83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8024931590159449298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742590444071634013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2872a3035d3464fa1e76a5d6e6236e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyStats: {fileID: 11400000, guid: 8821e76d0ca3d8d4bbac74c6e2f03c57, type: 2}
+  relocateDistance: 25
+  currentMoveSpeed: 0
+  currentHealth: 0
+  currentDamage: 0
+--- !u!114 &6542514804404750357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742590444071634013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6190d330b4577841b0adca546b897ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: Blue Expirience Poition
+    prefab: {fileID: 8740112112889310970, guid: 4a94f28dcdabe464b80c03f89dfbb949, type: 3}
+    dropRate: 95
 --- !u!61 &3376407287110649042
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,7 +189,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -159,29 +205,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.1428572, y: 1.1428572}
   m_EdgeRadius: 0
---- !u!114 &-1375734410715590013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5742590444071634013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d01893b4ea7e1fd41aacaafb0426de83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: 8821e76d0ca3d8d4bbac74c6e2f03c57, type: 2}
---- !u!114 &8024931590159449298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5742590444071634013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb2872a3035d3464fa1e76a5d6e6236e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyStats: {fileID: 11400000, guid: 8821e76d0ca3d8d4bbac74c6e2f03c57, type: 2}

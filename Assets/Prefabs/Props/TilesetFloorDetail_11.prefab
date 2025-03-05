@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7410039191527617970}
   - component: {fileID: 2633493900289121548}
   - component: {fileID: 6687798246000060318}
+  - component: {fileID: 2842955457129337141}
+  - component: {fileID: 6623618228296040165}
   m_Layer: 0
   m_Name: TilesetFloorDetail_11
   m_TagString: Untagged
@@ -134,3 +136,32 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2842955457129337141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8963782057771515303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc570ebd1ad3c5d47acd577ee583f38e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+--- !u!114 &6623618228296040165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8963782057771515303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6190d330b4577841b0adca546b897ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: Heal
+    prefab: {fileID: 5115089154171197700, guid: 437b9f7050305b146b43dadd52aeec26, type: 3}
+    dropRate: 50

@@ -32,6 +32,10 @@ public class MeleWeaponBehavior : MonoBehaviour
             var enemyStats = other.GetComponent<EnemyStats>();
             enemyStats.TakeDamage(currentDamage);
         }
+        else if (other.TryGetComponent<BreakableProps>(out BreakableProps breakable))
+        {
+            breakable.TakeDamage(currentDamage);
+        }
     }
 
 }

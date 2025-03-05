@@ -19,5 +19,9 @@ public class GarlicBehavior : MeleWeaponBehavior
 
             hittedEnemies.Add(other.gameObject);
         }
+        else if (other.TryGetComponent<BreakableProps>(out BreakableProps breakable))
+        {
+            hittedEnemies.Add(other.gameObject);
+        }
     }
 }

@@ -18,7 +18,6 @@ public class MapController : MonoBehaviour
     [SerializeField] private List<GameObject> spawnedChunks = new List<GameObject>();
     [SerializeField] private float OptimizationDuration;
     private float OptimizationCd = 0;
-    private GameObject LastestChunk;
 
     void Start()
     {
@@ -52,7 +51,7 @@ public class MapController : MonoBehaviour
     void SpawnChunk(Vector3 chunkSpawnPosition)
     {
         var randomChunkIndex = UnityEngine.Random.Range(0, _chunkPrefabs.Count);
-        LastestChunk = Instantiate(_chunkPrefabs[randomChunkIndex], chunkSpawnPosition, quaternion.identity);
+        var LastestChunk = Instantiate(_chunkPrefabs[randomChunkIndex], chunkSpawnPosition, quaternion.identity);
         spawnedChunks.Add(LastestChunk);
         LastestChunk.transform.parent = _ChunksContainer.transform;
     }

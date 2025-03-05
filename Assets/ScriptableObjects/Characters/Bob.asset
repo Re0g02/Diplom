@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ec034c5edb4f547b5356afcab80bd0, type: 3}
+  m_Name: Bob
+  m_EditorClassIdentifier: 
+  _playerStartingWeapon: {fileID: 1927207290041553042, guid: 7017e58d79775804ea18e6d7381dafed, type: 3}
+  _playerMaxHealth: 800
+  _playerHealthRecovery: 3
+  _playerMoveSpeed: 5
+  _playerMight: 0
+  _playerProjectileSpeed: 0
+  _playerMagnet: 0.9

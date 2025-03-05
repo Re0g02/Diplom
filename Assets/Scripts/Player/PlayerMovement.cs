@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
+   
+    [HideInInspector] public Vector2 lastMoveVector;
     private Rigidbody2D _playerRb;
     private Vector2 moveDirection;
-    [HideInInspector] public Vector2 lastMoveVector;
+    private PlayerStats player;
     void Start()
     {
+        player = GetComponent<PlayerStats>();
         _playerRb = GetComponent<Rigidbody2D>();
         lastMoveVector = new Vector2(1, 0f);
     }
@@ -33,7 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        _playerRb.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        _playerRb.linearVelocity = new Vector2(moveDirection.x * player.currentMoveSpeed,
+                                               moveDirection.y * player.currentMoveSpeed);
     }
 
     public Vector2 GetMoveDirection()

@@ -34,13 +34,13 @@ public class ProjectileWeaponBehavior : MonoBehaviour
         var scale = transform.localScale;
         var rotation = transform.rotation.eulerAngles;
 
-        scale.y *= dir.x < 0 ? -1 : 1;
-        rotation.z += dir.y > 0 && dir.x == 0f ? 90 : 0;
-        rotation.z += dir.y < 0 && dir.x == 0f ? -90 : 0;
-        rotation.z += dir.y > 0 && dir.x > 0 ? 45 : 0;
-        rotation.z += dir.y > 0 && dir.x < 0 ? -45 : 0;
-        rotation.z += dir.y < 0 && dir.x > 0 ? -45 : 0;
-        rotation.z += dir.y < 0 && dir.x < 0 ? 45 : 0;
+        scale.x *= dir.x < 0 ? -1 : 1;
+        rotation.z += dir.y == 0 && dir.x > 0 ? -45 : 0;
+        rotation.z += dir.y < 0 && dir.x > 0 ? -90 : 0;
+        rotation.z += dir.y > 0 && dir.x == 0 ? 45 : 0;
+        rotation.z += dir.y < 0 && dir.x == 0 ? -135 : 0;
+        rotation.z += dir.y == 0 && dir.x < 0 ? 45 : 0;
+        rotation.z += dir.y < 0 && dir.x < 0 ? 90 : 0;
 
         transform.localScale = scale;
         transform.rotation = Quaternion.Euler(rotation);
@@ -54,6 +54,12 @@ public class ProjectileWeaponBehavior : MonoBehaviour
             enemyStats.TakeDamage(currentDamage);
             ReducePierce();
         }
+        else if (other.TryGetComponent<BreakableProps>(out BreakableProps breakable))
+        {
+            breakable.TakeDamage(currentDamage);
+            ReducePierce();
+        }
+
     }
 
     void ReducePierce()
