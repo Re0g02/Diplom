@@ -51,12 +51,12 @@ public class ProjectileWeaponBehavior : MonoBehaviour
         if (other.GetComponent<EnemyMovement>())
         {
             var enemyStats = other.GetComponent<EnemyStats>();
-            enemyStats.TakeDamage(currentDamage);
+            enemyStats.TakeDamage(GetCurrentDamage());
             ReducePierce();
         }
         else if (other.TryGetComponent<BreakableProps>(out BreakableProps breakable))
         {
-            breakable.TakeDamage(currentDamage);
+            breakable.TakeDamage(GetCurrentDamage());
             ReducePierce();
         }
 
@@ -69,5 +69,10 @@ public class ProjectileWeaponBehavior : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public float GetCurrentDamage()
+    {
+        return currentDamage *= FindFirstObjectByType<PlayerStats>().CurrentMight;
     }
 }

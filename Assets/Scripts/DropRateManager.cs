@@ -13,32 +13,26 @@ public class DropRateManager : MonoBehaviour
     }
 
     [SerializeField] private List<Drops> drops;
-    private bool isQuiting = false;
-
-    void OnApplicationQuit()
-    {
-        isQuiting = true;
-    }
 
     void OnDestroy()
     {
-        if (!isQuiting)
-        {
-            var randomNumber = UnityEngine.Random.Range(0f, 100f);
-            var posibleDrops = new List<Drops>();
+        if (!gameObject.scene.isLoaded) return;
 
-            foreach (var rate in drops)
+        var randomNumber = UnityEngine.Random.Range(0f, 100f);
+        var posibleDrops = new List<Drops>();
+
+        foreach (var rate in drops)
+        {
+            if (randomNumber <= rate.dropRate)
             {
-                if (randomNumber <= rate.dropRate)
-                {
-                    posibleDrops.Add(rate);
-                }
-            }
-            if (posibleDrops.Count > 0)
-            {
-                var drops = posibleDrops[UnityEngine.Random.Range(0, posibleDrops.Count)].prefab;
-                Instantiate(drops, transform.position, quaternion.identity);
+                posibleDrops.Add(rate);
             }
         }
+        if (posibleDrops.Count > 0)
+        {
+            var drops = posibleDrops[UnityEngine.Random.Range(0, posibleDrops.Count)].prefab;
+            Instantiate(drops, transform.position, quaternion.identity);
+        }
+
     }
 }

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-   
     [HideInInspector] public Vector2 lastMoveVector;
     private Rigidbody2D _playerRb;
     private Vector2 moveDirection;
@@ -25,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void GetMoveAxis()
     {
+        if (GameManager.instance.IsGameOver) return;
         var moveX = Input.GetAxisRaw("Horizontal");
         var moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
@@ -35,8 +35,9 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        _playerRb.linearVelocity = new Vector2(moveDirection.x * player.currentMoveSpeed,
-                                               moveDirection.y * player.currentMoveSpeed);
+        if (GameManager.instance.IsGameOver) return;
+        _playerRb.linearVelocity = new Vector2(moveDirection.x * player.CurrentMoveSpeed,
+                                               moveDirection.y * player.CurrentMoveSpeed);
     }
 
     public Vector2 GetMoveDirection()

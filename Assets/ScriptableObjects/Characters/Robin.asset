@@ -16,6 +16,8 @@ MonoBehaviour:
   _playerMaxHealth: 600
   _playerHealthRecovery: 5
   _playerMoveSpeed: 6
-  _playerMight: 0
+  _playerMight: 1
   _playerProjectileSpeed: 0
   _playerMagnet: 1.2
+  _playerIcon: {fileID: 1509690687825009327, guid: b9b60582051fd3248b9361a1eccfabec, type: 3}
+  _playerName: Robin

@@ -74,7 +74,6 @@ public class EnemySpawner : MonoBehaviour
             currentWaveQuota += enemyGroup.enemyCount;
         }
         _waves[currentWaveNumber].waveQuota = currentWaveQuota;
-        Debug.Log(currentWaveQuota);
     }
 
     void SpawnEnemies()
@@ -90,7 +89,8 @@ public class EnemySpawner : MonoBehaviour
                         maxEnemiesReached = true;
                         return;
                     }
-                    Instantiate(enemyGroup.enemyPrefab, GenerateRandomSpawnPosition(), Quaternion.identity);
+                    var enemy = Instantiate(enemyGroup.enemyPrefab, GenerateRandomSpawnPosition(), Quaternion.identity);
+                    enemy.transform.SetParent(transform);
                     enemyGroup.enemySpawned++;
                     _waves[currentWaveNumber].spawnCount++;
                     enemiesAlive++;

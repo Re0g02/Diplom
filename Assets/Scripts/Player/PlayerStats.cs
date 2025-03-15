@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.U2D.Animation;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -7,14 +6,86 @@ public class PlayerStats : MonoBehaviour
     //character stats
     private PlayerScriptableObject _playerStats;
     //current stats
-    [HideInInspector] public float currentMaxHealth;
-    [HideInInspector] public float currentHealthRecovery;
-    [HideInInspector] public float currentMoveSpeed;
-    [HideInInspector] public float currentMight;
-    [HideInInspector] public float currentProjectileSpeed;
-    [HideInInspector] public float currentHealth;
-    [HideInInspector] public float currentMagnet;
-    //expirience
+    private float currentMaxHealth;
+    private float currentHealthRecovery;
+    private float currentMoveSpeed;
+    private float currentMight;
+    private float currentProjectileSpeed;
+    private float currentHealth;
+    private float currentMagnet;
+
+    #region properties
+    public float CurrentMaxHealth
+    {
+        get => currentMaxHealth;
+        set
+        {
+            currentMaxHealth = value;
+        }
+    }
+    public float CurrentHealthRecovery
+    {
+        get => currentHealthRecovery;
+        set
+        {
+            currentHealthRecovery = value;
+            if (GameManager.instance != null)
+                GameManager.instance.currentRecoveryText = "HealtRecovery: " + currentHealthRecovery;
+        }
+    }
+    public float CurrentMoveSpeed
+    {
+        get => currentMoveSpeed;
+        set
+        {
+            currentMoveSpeed = value;
+            if (GameManager.instance != null)
+                GameManager.instance.currentMoveSpeedText = "MoveSpeed: " + currentMoveSpeed;
+        }
+    }
+    public float CurrentMight
+    {
+        get => currentMight;
+        set
+        {
+            currentMight = value;
+            if (GameManager.instance != null)
+                GameManager.instance.currentMightText = "Might: " + currentMight;
+        }
+    }
+    public float CurrentProjectileSpeed
+    {
+        get => currentProjectileSpeed;
+        set
+        {
+            currentProjectileSpeed = value;
+            if (GameManager.instance != null)
+                GameManager.instance.currentProjectileSpeedText = "ProjectileSpeed: " + currentProjectileSpeed;
+        }
+    }
+    public float CurrentHealth
+    {
+        get => currentHealth;
+        set
+        {
+            currentHealth = value;
+            if (GameManager.instance != null)
+                GameManager.instance.currentHealthText = "Health: " + currentHealth;
+        }
+    }
+    public float CurrentMagnet
+    {
+        get => currentMagnet;
+        set
+        {
+            currentMagnet = value;
+            if (GameManager.instance != null)
+                GameManager.instance.currentMagnetText = "Magnet: " + currentMagnet;
+        }
+    }
+    #endregion
+
+    //expirience    
     [SerializeField] private int currentExpirience = 0;
     [SerializeField] private int currentLevel = 1;
     [SerializeField] private int currentExpirienceCap;
@@ -30,23 +101,31 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float _invincibilityDuration;
     private float invincibilityTimer;
     private bool isInvincible;
-    //weapons
-    [SerializeField] private List<GameObject> spawnedWeapons;
+
+    //weapons and passiveItems
+    private InvetntoryManager inventory;
+    private int weaponIndex = 0;
+    private int passiveItemIndex = 0;
+    public GameObject item;
 
     void Awake()
     {
         _playerStats = CharacterSelector.GetData();
         CharacterSelector.instance.DestroySingleton();
+        inventory = GetComponent<InvetntoryManager>();
 
-        currentMaxHealth = _playerStats.maxHealth;
-        currentHealthRecovery = _playerStats.healthRecovery;
-        currentMoveSpeed = _playerStats.moveSpeed;
-        currentMight = _playerStats.might;
-        currentProjectileSpeed = _playerStats.projectileSpeed;
-        currentHealth = _playerStats.maxHealth;
-        currentMagnet = _playerStats.magnet;
+        CurrentMaxHealth = _playerStats.maxHealth;
+        CurrentHealthRecovery = _playerStats.healthRecovery;
+        CurrentMoveSpeed = _playerStats.moveSpeed;
+        CurrentMight = _playerStats.might;
+        CurrentProjectileSpeed = _playerStats.projectileSpeed;
+        CurrentHealth = _playerStats.maxHealth;
+        CurrentMagnet = _playerStats.magnet;
 
         CreateWeaponController(_playerStats.startingWeapon);
+        CreatePassiveItemController(item);
+        GameManager.instance.ChangePlayerUIOnGameOverScreen(_playerStats);
+        GameManager.instance.ChangePlayerInventoryOnGameOverScreen(inventory.weaponUI, inventory.itemUI);
     }
 
     void Start()
@@ -89,11 +168,11 @@ public class PlayerStats : MonoBehaviour
     {
         if (!isInvincible)
         {
-            currentHealth -= dmg;
+            CurrentHealth -= dmg;
             invincibilityTimer = _invincibilityDuration;
             isInvincible = true;
 
-            if (currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
                 Kill();
             }
@@ -102,29 +181,53 @@ public class PlayerStats : MonoBehaviour
 
     public void Kill()
     {
-        Debug.Log("Player Died!");
+        if (GameManager.instance != null)
+            if (!GameManager.instance.IsGameOver)
+            {
+                GameManager.instance.GameOver();
+                GameManager.instance.ChangePlayerLevelOnGameOverScreen(currentLevel);
+            }
     }
 
     public void Heal(float heals)
     {
-        if (currentHealth + heals > currentMaxHealth)
-            currentHealth = currentMaxHealth;
+        if (CurrentHealth + heals > CurrentMaxHealth)
+            CurrentHealth = CurrentMaxHealth;
         else
-            currentHealth += heals;
+            CurrentHealth += heals;
     }
 
     void HealsRocover()
     {
-        if (currentHealth + currentHealthRecovery * Time.deltaTime > currentMaxHealth)
-            currentHealth = currentMaxHealth;
-        else if (currentHealth + currentHealthRecovery * Time.deltaTime != currentMaxHealth)
-            currentHealth += currentHealthRecovery * Time.deltaTime;
+        if (CurrentHealth + CurrentHealthRecovery * Time.deltaTime > CurrentMaxHealth)
+            CurrentHealth = CurrentMaxHealth;
+        else if (CurrentHealth + CurrentHealthRecovery * Time.deltaTime != CurrentMaxHealth)
+            CurrentHealth += CurrentHealthRecovery * Time.deltaTime;
     }
 
     private void CreateWeaponController(GameObject weaponController)
     {
+        if (weaponIndex >= inventory.weapons.Capacity - 1)
+        {
+            Debug.LogError("weaponsInventory Overflow!");
+            return;
+        }
         var controller = Instantiate(weaponController, transform.position, Quaternion.identity);
         controller.transform.SetParent(transform);
-        spawnedWeapons.Add(controller);
+        inventory.AddWeapon(weaponIndex, controller.GetComponent<WeaponController>());
+        weaponIndex++;
+    }
+
+    private void CreatePassiveItemController(GameObject passiveItemController)
+    {
+        if (passiveItemIndex >= inventory.passiveItem.Capacity - 1)
+        {
+            Debug.LogError("PassiveItemsInventory Overflow!");
+            return;
+        }
+        var controller = Instantiate(passiveItemController, transform.position, Quaternion.identity);
+        controller.transform.SetParent(transform);
+        inventory.AddPassiveItem(passiveItemIndex, controller.GetComponent<PassiveItem>());
+        passiveItemIndex++;
     }
 }

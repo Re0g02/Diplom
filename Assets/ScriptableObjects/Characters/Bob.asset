@@ -16,6 +16,8 @@ MonoBehaviour:
   _playerMaxHealth: 800
   _playerHealthRecovery: 3
   _playerMoveSpeed: 5
-  _playerMight: 0
+  _playerMight: 1
   _playerProjectileSpeed: 0
   _playerMagnet: 0.9
+  _playerIcon: {fileID: 1509690687825009327, guid: b9b60582051fd3248b9361a1eccfabec, type: 3}
+  _playerName: Bob

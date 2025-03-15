@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Garlic Weapon
   m_EditorClassIdentifier: 
   _weaponPrefab: {fileID: 7022188158866437706, guid: 9429c84ba9cd6074ba46e8be31027db3, type: 3}
+  _weaponIcon: {fileID: 21300000, guid: 13067b37928a596408795b23dce2308e, type: 3}
   _weaponDamage: 2
   _weaponSpeed: 0
   _weaponCdDuration: 4
-  _weaponLifetime: 2
+  _weaponLifetime: 4
   _weaponPierce: 0
+  _weaponLevel: 1
+  _weaponNextLevelPrefab: {fileID: 4245781957757919984, guid: 3bdde6f40cc55cb45a7c15aa3dae4e03, type: 3}

@@ -15,12 +15,13 @@ public class GarlicBehavior : MeleWeaponBehavior
         if (other.GetComponent<EnemyMovement>() && !hittedEnemies.Contains(other.gameObject))
         {
             var enemyStats = other.GetComponent<EnemyStats>();
-            enemyStats.TakeDamage(currentDamage);
+            enemyStats.TakeDamage(GetCurrentDamage());
 
             hittedEnemies.Add(other.gameObject);
         }
         else if (other.TryGetComponent<BreakableProps>(out BreakableProps breakable))
         {
+            breakable.TakeDamage(GetCurrentDamage());
             hittedEnemies.Add(other.gameObject);
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerScriptableObject", menuName = "ScriptableObjects/Player")]
@@ -10,6 +11,8 @@ public class PlayerScriptableObject : ScriptableObject
     [SerializeField] private float _playerMight;
     [SerializeField] private float _playerProjectileSpeed;
     [SerializeField] private float _playerMagnet;
+    [SerializeField] private Sprite _playerIcon;
+    [SerializeField] private String _playerName;
 
     public GameObject startingWeapon { get => _playerStartingWeapon; private set => _playerStartingWeapon = value; }
     public float maxHealth { get => _playerMaxHealth; private set => _playerMaxHealth = value; }
@@ -18,4 +21,6 @@ public class PlayerScriptableObject : ScriptableObject
     public float might { get => _playerMight; private set => _playerMight = value; }
     public float projectileSpeed { get => _playerProjectileSpeed; private set => _playerProjectileSpeed = value; }
     public float magnet { get => _playerMagnet; private set => _playerMagnet = value; }
+    public Sprite icon { get => _playerIcon; private set => _playerIcon = value; }
+    public String playerName { get => _playerName; private set => _playerName = value; }
 }

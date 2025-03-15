@@ -5,7 +5,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] protected WeaponScriptableObject _weaponStats;
     protected PlayerMovement playerMovementScript;
     private float currentCd;
-    [HideInInspector] public float _speed => _weaponStats.speed;
+    [HideInInspector] public WeaponScriptableObject stats { get => _weaponStats; private set => _weaponStats = value; }
 
     virtual protected void Start()
     {
@@ -19,7 +19,7 @@ public class WeaponController : MonoBehaviour
         if (currentCd <= 0f)
             Attack();
     }
-    
+
     virtual protected void Attack()
     {
         currentCd = _weaponStats.cdDuration;

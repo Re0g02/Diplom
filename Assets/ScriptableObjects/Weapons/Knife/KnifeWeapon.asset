@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: KnifeWeapon
   m_EditorClassIdentifier: 
   _weaponPrefab: {fileID: 4107160157676689113, guid: a3984b97aa9e600429107a90c8a190ee, type: 3}
+  _weaponIcon: {fileID: -8848109906535381355, guid: cba02ac3994f5d64ea6572aa7c94bc0b, type: 3}
   _weaponDamage: 4
   _weaponSpeed: 10
   _weaponCdDuration: 2
   _weaponLifetime: 3
   _weaponPierce: 1
+  _weaponLevel: 1
+  _weaponNextLevelPrefab: {fileID: 1927207290041553042, guid: a562453ceae07754680d6ce3547fa231, type: 3}
