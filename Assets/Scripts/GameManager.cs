@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +14,8 @@ public class GameManager : MonoBehaviour
     {
         Play,
         Paused,
-        Gameover
+        Gameover,
+        LevelUp
     }
 
     private GameState currentGameState;
@@ -21,6 +24,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _pauseScreen;
     [SerializeField] private GameObject _resultScreen;
     [SerializeField] private GameObject _gameUIScreen;
+    [SerializeField] private GameObject _levelUpScreen;
+
     [Header("Pause Screen")]
     [SerializeField] private TextMeshProUGUI _currentHealthText;
     [SerializeField] private TextMeshProUGUI _currentRecoveryText;
@@ -28,14 +33,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _currentMightText;
     [SerializeField] private TextMeshProUGUI _currentProjectileSpeedText;
     [SerializeField] private TextMeshProUGUI _currentMagnetText;
+
     [Header("GameOver Screen")]
     [SerializeField] private Image _playerIcon;
     [SerializeField] private TextMeshProUGUI _playerName;
     [SerializeField] private TextMeshProUGUI _playerLevelText;
+    [SerializeField] private TextMeshProUGUI _playerTimerText;
     [SerializeField] private List<Image> _playerWeapons = new List<Image>(6);
     [SerializeField] private List<Image> _playerItems = new List<Image>(6);
-
     private bool isGameOver = false;
+
+    [Header("Timer")]
+    [SerializeField] private float _timeLimit;
+    [SerializeField] private TextMeshProUGUI _timerText;
+    private float currentTime;
+    [Header("LevelUp")]
+    private bool chosingUpdate = false;
 
     public String currentHealthText { get => _currentHealthText.text; set => _currentHealthText.text = value; }
     public String currentRecoveryText { get => _currentRecoveryText.text; set => _currentRecoveryText.text = value; }
@@ -55,12 +68,15 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        TestFunc();
+
         switch (currentGameState)
         {
             case GameState.Play:
+                PauseInput();
+                UpdateCurrentTime();
                 break;
             case GameState.Paused:
+                PauseInput();
                 break;
             case GameState.Gameover:
                 if (!isGameOver)
@@ -68,6 +84,14 @@ public class GameManager : MonoBehaviour
                     isGameOver = true;
                     Time.timeScale = 0f;
                     DisplayResults();
+                }
+                break;
+            case GameState.LevelUp:
+                if (!chosingUpdate)
+                {
+                    chosingUpdate = true;
+                    Time.timeScale = 0f;
+                    _levelUpScreen.SetActive(true);
                 }
                 break;
             default:
@@ -106,9 +130,10 @@ public class GameManager : MonoBehaviour
     {
         _pauseScreen.SetActive(false);
         _resultScreen.SetActive(false);
+        _levelUpScreen.SetActive(false);
     }
 
-    private void TestFunc()
+    private void PauseInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             if (currentGameState == GameState.Paused)
@@ -118,6 +143,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        _playerTimerText.text = _timerText.text;
         ChangeGameState(GameState.Gameover);
     }
 
@@ -157,5 +183,31 @@ public class GameManager : MonoBehaviour
                 _playerItems[i].sprite = itemsImage[i].sprite;
             }
         }
+    }
+
+    void UpdateCurrentTime()
+    {
+        currentTime += Time.deltaTime;
+        UpdateTimer();
+        if (currentTime >= _timeLimit) GameOver();
+    }
+
+    void UpdateTimer()
+    {
+        var minutes = Mathf.FloorToInt(currentTime / 60);
+        var seconds = Mathf.FloorToInt(currentTime % 60);
+        _timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    void StartLevelUp()
+    {
+        ChangeGameState(GameState.LevelUp);
+
+    }
+
+    void EndLevelUp()
+    {
+        chosingUpdate = false;
+        Time.timeScale = 1f;
     }
 }

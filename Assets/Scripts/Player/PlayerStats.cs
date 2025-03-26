@@ -106,7 +106,9 @@ public class PlayerStats : MonoBehaviour
     private InvetntoryManager inventory;
     private int weaponIndex = 0;
     private int passiveItemIndex = 0;
-    public GameObject item;
+    public GameObject item1;
+    public GameObject item2;
+    public GameObject item3;
 
     void Awake()
     {
@@ -123,7 +125,7 @@ public class PlayerStats : MonoBehaviour
         CurrentMagnet = _playerStats.magnet;
 
         CreateWeaponController(_playerStats.startingWeapon);
-        CreatePassiveItemController(item);
+        CreatePassiveItemController(item1);
         GameManager.instance.ChangePlayerUIOnGameOverScreen(_playerStats);
         GameManager.instance.ChangePlayerInventoryOnGameOverScreen(inventory.weaponUI, inventory.itemUI);
     }
@@ -151,6 +153,7 @@ public class PlayerStats : MonoBehaviour
         if (currentExpirience >= currentExpirienceCap)
         {
             currentLevel++;
+            GameManager.instance.ChangePlayerLevelOnGameOverScreen(currentLevel);
             currentExpirience -= currentExpirienceCap;
 
             var expirienceCapIncrease = 0;
@@ -185,7 +188,6 @@ public class PlayerStats : MonoBehaviour
             if (!GameManager.instance.IsGameOver)
             {
                 GameManager.instance.GameOver();
-                GameManager.instance.ChangePlayerLevelOnGameOverScreen(currentLevel);
             }
     }
 

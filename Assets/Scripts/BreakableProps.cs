@@ -6,12 +6,14 @@ public class BreakableProps : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         health -= dmg;
-        if (health <= 0) {
+        if (health <= 0)
+        {
             Kill();
-         }
+        }
     }
 
-    private void Kill(){
+    private void Kill()
+    {
         Destroy(gameObject);
     }
 }
