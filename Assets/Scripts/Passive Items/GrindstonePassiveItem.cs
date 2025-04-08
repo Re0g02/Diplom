@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class GrindstonePassiveItem : PassiveItem
 {
     protected override void ApplyModifier()

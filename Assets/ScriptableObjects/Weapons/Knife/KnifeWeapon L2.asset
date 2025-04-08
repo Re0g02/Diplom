@@ -20,4 +20,6 @@ MonoBehaviour:
   _weaponLifetime: 3
   _weaponPierce: 2
   _weaponLevel: 2
-  _weaponNextLevelPrefab: {fileID: 0}
+  _weaponNextLevelPrefab: {fileID: 1927207290041553042, guid: c3643417ef9cebd4e99d73675dfce804, type: 3}
+  _weaponName: Knife lvl.2
+  _weaponDescription: "\u041E\u0440\u0443\u0436\u0438\u0435 \u043B\u0432\u043B2"

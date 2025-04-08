@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Robin
   m_EditorClassIdentifier: 
   _playerStartingWeapon: {fileID: 4245781957757919984, guid: 4be0ce671cca98e46b1c50f69b96b3d2, type: 3}
-  _playerMaxHealth: 600
+  _playerMaxHealth: 6000000
   _playerHealthRecovery: 5
   _playerMoveSpeed: 6
   _playerMight: 1

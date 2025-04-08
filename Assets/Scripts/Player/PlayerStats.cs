@@ -70,7 +70,10 @@ public class PlayerStats : MonoBehaviour
         {
             currentHealth = value;
             if (GameManager.instance != null)
+            {
                 GameManager.instance.currentHealthText = "Health: " + currentHealth;
+                GameManager.instance.HealthBarFillAmount = currentHealth / currentMaxHealth;
+            }
         }
     }
     public float CurrentMagnet
@@ -83,11 +86,32 @@ public class PlayerStats : MonoBehaviour
                 GameManager.instance.currentMagnetText = "Magnet: " + currentMagnet;
         }
     }
+
+    public int CurrentExpirience
+    {
+        get => currentExpirience;
+        set
+        {
+            currentExpirience = value;
+            if (GameManager.instance != null)
+                GameManager.instance.ExpBarFillAmount = (float)currentExpirience / currentExpirienceCap;
+        }
+    }
+
+    public int CurrentLevel
+    {
+        get => currentLevel;
+        set
+        {
+            currentLevel = value;
+            GameManager.instance.ExpBarText = "LVL." + currentLevel;
+        }
+    }
     #endregion
 
     //expirience    
-    [SerializeField] private int currentExpirience = 0;
-    [SerializeField] private int currentLevel = 1;
+    private int currentExpirience = 0;
+    private int currentLevel = 1;
     [SerializeField] private int currentExpirienceCap;
     [SerializeField] private List<LevelRange> levelRanges;
     [System.Serializable]
@@ -106,9 +130,6 @@ public class PlayerStats : MonoBehaviour
     private InvetntoryManager inventory;
     private int weaponIndex = 0;
     private int passiveItemIndex = 0;
-    public GameObject item1;
-    public GameObject item2;
-    public GameObject item3;
 
     void Awake()
     {
@@ -125,13 +146,15 @@ public class PlayerStats : MonoBehaviour
         CurrentMagnet = _playerStats.magnet;
 
         CreateWeaponController(_playerStats.startingWeapon);
-        CreatePassiveItemController(item1);
         GameManager.instance.ChangePlayerUIOnGameOverScreen(_playerStats);
         GameManager.instance.ChangePlayerInventoryOnGameOverScreen(inventory.weaponUI, inventory.itemUI);
     }
 
     void Start()
     {
+        CurrentExpirience = 0;
+        CurrentLevel = 1;
+        GameManager.instance.ChangePlayerLevelOnGameOverScreen(CurrentLevel);
         currentExpirienceCap = levelRanges[0].expirienceCapIncrease;
     }
     void Update()
@@ -144,26 +167,28 @@ public class PlayerStats : MonoBehaviour
     }
     public void IncreaseExperience(int amount)
     {
-        currentExpirience += amount;
+        CurrentExpirience += amount;
         LevelUpcheker();
     }
 
     void LevelUpcheker()
     {
-        if (currentExpirience >= currentExpirienceCap)
+        if (CurrentExpirience >= currentExpirienceCap)
         {
-            currentLevel++;
-            GameManager.instance.ChangePlayerLevelOnGameOverScreen(currentLevel);
-            currentExpirience -= currentExpirienceCap;
+            CurrentLevel++;
+            GameManager.instance.ChangePlayerLevelOnGameOverScreen(CurrentLevel);
+            CurrentExpirience -= currentExpirienceCap;
 
             var expirienceCapIncrease = 0;
             foreach (LevelRange levelRange in levelRanges)
-                if (currentLevel >= levelRange.startLevel && currentLevel <= levelRange.endLevel)
+                if (CurrentLevel >= levelRange.startLevel && CurrentLevel <= levelRange.endLevel)
                 {
                     expirienceCapIncrease = levelRange.expirienceCapIncrease;
                     break;
                 }
             currentExpirienceCap += expirienceCapIncrease;
+
+            GameManager.instance.LevelUp();
         }
     }
 
@@ -207,7 +232,7 @@ public class PlayerStats : MonoBehaviour
             CurrentHealth += CurrentHealthRecovery * Time.deltaTime;
     }
 
-    private void CreateWeaponController(GameObject weaponController)
+    public void CreateWeaponController(GameObject weaponController)
     {
         if (weaponIndex >= inventory.weapons.Capacity - 1)
         {
@@ -220,7 +245,7 @@ public class PlayerStats : MonoBehaviour
         weaponIndex++;
     }
 
-    private void CreatePassiveItemController(GameObject passiveItemController)
+    public void CreatePassiveItemController(GameObject passiveItemController)
     {
         if (passiveItemIndex >= inventory.passiveItem.Capacity - 1)
         {

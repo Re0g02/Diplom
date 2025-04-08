@@ -21,3 +21,5 @@ MonoBehaviour:
   _weaponPierce: 0
   _weaponLevel: 2
   _weaponNextLevelPrefab: {fileID: 0}
+  _weaponName: Garlic lvl.2
+  _weaponDescription: "\u043E\u0440\u0443\u0436\u0438\u0435 \u043B\u0432\u043B2"

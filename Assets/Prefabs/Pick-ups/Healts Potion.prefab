@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -8517954024714197142}
   - component: {fileID: 5459012252434530586}
   - component: {fileID: 7812922936359234267}
+  - component: {fileID: 2978547377418139876}
   m_Layer: 0
   m_Name: Healts Potion
   m_TagString: Untagged
@@ -176,3 +177,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2978547377418139876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115089154171197700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049045cbcb530ff44a44c8425543c402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frequency: 3
+  _magnitude: 0.1
+  _boobindDirection: {x: 0, y: 1, z: 0}

@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class BootsPassiveItem : PassiveItem
 {
     protected override void ApplyModifier()

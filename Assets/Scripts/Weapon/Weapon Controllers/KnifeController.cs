@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class KnifeController : WeaponController
 {
     protected override void Start()

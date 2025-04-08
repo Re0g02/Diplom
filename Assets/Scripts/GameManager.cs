@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,12 +40,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Image> _playerItems = new List<Image>(6);
     private bool isGameOver = false;
 
-    [Header("Timer")]
+    [Header("Play")]
     [SerializeField] private float _timeLimit;
     [SerializeField] private TextMeshProUGUI _timerText;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private Image expBar;
+    [SerializeField] private TextMeshProUGUI expText;
     private float currentTime;
-    [Header("LevelUp")]
-    private bool chosingUpdate = false;
+
+    private bool isChoosingUpdate = false;
+    public GameObject playerObject;
 
     public String currentHealthText { get => _currentHealthText.text; set => _currentHealthText.text = value; }
     public String currentRecoveryText { get => _currentRecoveryText.text; set => _currentRecoveryText.text = value; }
@@ -57,6 +58,10 @@ public class GameManager : MonoBehaviour
     public String currentProjectileSpeedText { get => _currentProjectileSpeedText.text; set => _currentProjectileSpeedText.text = value; }
     public String currentMagnetText { get => _currentMagnetText.text; set => _currentMagnetText.text = value; }
     public bool IsGameOver { get => isGameOver; private set => isGameOver = value; }
+    public bool IsChoosingUpdate { get => isChoosingUpdate; private set => isChoosingUpdate = value; }
+    public float HealthBarFillAmount { set => healthBar.fillAmount = value; }
+    public float ExpBarFillAmount { set => expBar.fillAmount = value; }
+    public String ExpBarText { set => expText.text = value; }
 
     void Awake()
     {
@@ -80,19 +85,11 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Gameover:
                 if (!isGameOver)
-                {
-                    isGameOver = true;
-                    Time.timeScale = 0f;
                     DisplayResults();
-                }
                 break;
             case GameState.LevelUp:
-                if (!chosingUpdate)
-                {
-                    chosingUpdate = true;
-                    Time.timeScale = 0f;
-                    _levelUpScreen.SetActive(true);
-                }
+                if (!isChoosingUpdate)
+                    StartLevelUp();
                 break;
             default:
                 Debug.Log("Unprocessable state");
@@ -149,6 +146,8 @@ public class GameManager : MonoBehaviour
 
     private void DisplayResults()
     {
+        isGameOver = true;
+        Time.timeScale = 0f;
         _resultScreen.SetActive(true);
         _gameUIScreen.SetActive(false);
     }
@@ -199,15 +198,26 @@ public class GameManager : MonoBehaviour
         _timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    void StartLevelUp()
+    public void LevelUp()
     {
         ChangeGameState(GameState.LevelUp);
-
+        playerObject.SendMessage("RemoveAndApplyLevelUp");
     }
 
-    void EndLevelUp()
+    public void StartLevelUp()
     {
-        chosingUpdate = false;
+        isChoosingUpdate = true;
+        Time.timeScale = 0f;
+        _gameUIScreen.SetActive(false);
+        _levelUpScreen.SetActive(true);
+    }
+
+    public void EndLevelUp()
+    {
+        isChoosingUpdate = false;
         Time.timeScale = 1f;
+        _levelUpScreen.SetActive(false);
+        _gameUIScreen.SetActive(true);
+        ChangeGameState(GameState.Play);
     }
 }

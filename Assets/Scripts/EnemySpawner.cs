@@ -34,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
     private int currentWaveNumber;
     private Transform playerTransform;
     private float spawnTimer;
+    private bool isWaveActive = false;
 
     void Start()
     {
@@ -43,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (currentWaveNumber < _waves.Count && _waves[currentWaveNumber].spawnCount == 0)
+        if (currentWaveNumber < _waves.Count && _waves[currentWaveNumber].spawnCount == 0 && !isWaveActive)
         {
             StartCoroutine(StartNextWave());
         }
@@ -58,9 +59,12 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator StartNextWave()
     {
+        isWaveActive = true;
+
         yield return new WaitForSeconds(_waveInterval);
         if (currentWaveNumber < _waves.Count - 1)
         {
+            isWaveActive = false;
             currentWaveNumber++;
             CalculateWaveQuota();
         }
@@ -84,22 +88,19 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (enemyGroup.enemySpawned < enemyGroup.enemyCount)
                 {
-                    if (enemiesAlive >= _maxEnemiesAllowed)
-                    {
-                        maxEnemiesReached = true;
-                        return;
-                    }
                     var enemy = Instantiate(enemyGroup.enemyPrefab, GenerateRandomSpawnPosition(), Quaternion.identity);
                     enemy.transform.SetParent(transform);
                     enemyGroup.enemySpawned++;
                     _waves[currentWaveNumber].spawnCount++;
                     enemiesAlive++;
+
+                    if (enemiesAlive >= _maxEnemiesAllowed)
+                    {
+                        maxEnemiesReached = true;
+                        return;
+                    }
                 }
             }
-        }
-        if (enemiesAlive < _maxEnemiesAllowed)
-        {
-            maxEnemiesReached = false;
         }
     }
     public Vector3 GenerateRandomSpawnPosition()
@@ -114,6 +115,9 @@ public class EnemySpawner : MonoBehaviour
     public void OnEnemyKilled()
     {
         enemiesAlive--;
+        if (enemiesAlive < _maxEnemiesAllowed)
+        {
+            maxEnemiesReached = false;
+        }
     }
 }
-

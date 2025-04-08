@@ -1,11 +1,13 @@
 using UnityEngine;
 
-public class HealItem : Pickup, ICollectible
+public class HealItem : Pickup
 {
     [SerializeField] private int _healthToHeal;
 
-    public void Collect()
+    public override void Collect()
     {
+        if (hasBeenCollected) return;
+        else base.Collect();
         var player = FindFirstObjectByType<PlayerStats>();
         player.Heal(_healthToHeal);
     }

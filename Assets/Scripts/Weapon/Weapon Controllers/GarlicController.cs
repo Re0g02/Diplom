@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class GarlicController : WeaponController
 {
     override protected void Start()
@@ -13,6 +11,4 @@ public class GarlicController : WeaponController
         var spawnedGarlic = Instantiate(_weaponStats.prefab, transform.position, transform.rotation);
         spawnedGarlic.transform.parent = transform;
     }
-
-
 }

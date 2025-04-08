@@ -21,3 +21,5 @@ MonoBehaviour:
   _weaponPierce: 0
   _weaponLevel: 1
   _weaponNextLevelPrefab: {fileID: 4245781957757919984, guid: 3bdde6f40cc55cb45a7c15aa3dae4e03, type: 3}
+  _weaponName: Garlic
+  _weaponDescription: "\u043E\u0440\u0443\u0436\u0438\u0435 \u043B\u0432\u043B1"

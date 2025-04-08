@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 [CreateAssetMenu(fileName = "WeaponScriptableObject", menuName = "ScriptableObjects/Weapon")]
@@ -12,6 +13,9 @@ public class WeaponScriptableObject : ScriptableObject
     [SerializeField] private int _weaponPierce;
     [SerializeField] private int _weaponLevel;
     [SerializeField] private GameObject _weaponNextLevelPrefab;
+    [SerializeField] private string _weaponName;
+    [SerializeField] private string _weaponDescription;
+    
     public GameObject prefab { get => _weaponPrefab; private set => prefab = value; }
     public Sprite icon { get => _weaponIcon; private set => _weaponIcon = value; }
     public float damage { get => _weaponDamage; private set => _weaponDamage = value; }
@@ -21,4 +25,6 @@ public class WeaponScriptableObject : ScriptableObject
     public int pierce { get => _weaponPierce; private set => _weaponPierce = value; }
     public int level { get => _weaponLevel; private set => _weaponLevel = value; }
     public GameObject nextLevelPrefab { get => _weaponNextLevelPrefab; private set => _weaponNextLevelPrefab = value; }
+    public string weaponName { get => _weaponName; private set => _weaponName = value; }
+    public string description{ get => _weaponDescription;private set => _weaponDescription = value;}
 }

@@ -16,3 +16,6 @@ MonoBehaviour:
   _itemLevel: 1
   _itemNextLevelPrefab: {fileID: 7460679698414765591, guid: ba8faed1632e6c54089115a95c4d2c81, type: 3}
   _itemIcon: {fileID: 3436459418995754391, guid: cba02ac3994f5d64ea6572aa7c94bc0b, type: 3}
+  _itemName: GrindStone
+  _itemDescription: "\u041F\u0430\u0441\u0441\u0438\u0432\u043D\u044B\u0439 \u043F\u0440\u0435\u0434\u043C\u0435\u0442
+    \u043B\u0432\u043B1"
