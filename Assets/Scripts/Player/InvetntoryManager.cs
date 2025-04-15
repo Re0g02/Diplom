@@ -22,7 +22,7 @@ public class InvetntoryManager : MonoBehaviour
     [System.Serializable]
     private class WeaponUpgrade
     {
-        public int upgradeIndex;
+        [HideInInspector] public int upgradeIndex;
         public GameObject initialWeapon;
         public WeaponScriptableObject weaponStats;
     }
@@ -30,7 +30,7 @@ public class InvetntoryManager : MonoBehaviour
     [System.Serializable]
     private class PassiveItemUpgrade
     {
-        public int upgradeIndex;
+        [HideInInspector] public int upgradeIndex;
         public GameObject initialPassiveItem;
         public PassiveItemScriptableObject passiveItemStats;
     }
@@ -51,7 +51,13 @@ public class InvetntoryManager : MonoBehaviour
     private List<WeaponUpgrade> availableWeaponUpgradeOptions;
     private List<PassiveItemUpgrade> availablePassiveItemUpgradeOptions;
 
+    [SerializeField] private List<WeaponEvolutionBlueprint> weaponEvolutions = new List<WeaponEvolutionBlueprint>();
     PlayerStats player;
+
+    void Awake()
+    {
+        AssignOptionIndexes();
+    }
 
     void Start()
     {
@@ -218,6 +224,22 @@ public class InvetntoryManager : MonoBehaviour
         }
     }
 
+    private void AssignOptionIndexes()
+    {
+        int weaponIndex = 0;
+        int passiveItemIndex = 0;
+        foreach (var weaponUpgrade in weaponUpgradeOptions)
+        {
+            weaponUpgrade.upgradeIndex = weaponIndex;
+            weaponIndex++;
+        }
+        foreach (var passiveItem in passiveItemUpgradeOptions)
+        {
+            passiveItem.upgradeIndex = passiveItemIndex;
+            passiveItemIndex++;
+        }
+    }
+
     private void RemoveUpdateOptions()
     {
         foreach (var upgradeOption in upgradeUIOptions)
@@ -249,5 +271,53 @@ public class InvetntoryManager : MonoBehaviour
     void EnableUpgradeUI(UpgradeUI ui)
     {
         ui.upgradeNameDisplay.transform.parent.gameObject.SetActive(true);
+    }
+
+    public List<WeaponEvolutionBlueprint> GetPossibleEvolutions()
+    {
+        List<WeaponEvolutionBlueprint> possibleEvolutions = new List<WeaponEvolutionBlueprint>();
+        foreach (var weapon in _weaponsInventory)
+            if (weapon != null)
+                foreach (var evolvedWeapon in weaponEvolutions)
+                    if (weapon.stats.weaponName.Contains(evolvedWeapon.BaseWeaponStats.weaponName) && weapon.stats.level >= evolvedWeapon.WeaponRequiredLevel)
+                        foreach (var passiveItem in _passiveItemsInventory)
+                            if (passiveItem != null)
+                                if (passiveItem.stats.itemName.Contains(evolvedWeapon.BasePassiveItemStats.itemName) && passiveItem.stats.level >= evolvedWeapon.PassiveItemRequiredLevel)
+                                {
+                                    possibleEvolutions.Add(evolvedWeapon);
+                                    break;
+                                }
+        return possibleEvolutions;
+    }
+
+    public void EvolveWeapon(WeaponEvolutionBlueprint evolution)
+    {
+        for (int weaponIndex = 0; weaponIndex < _weaponsInventory.Count; weaponIndex++)
+        {
+            var weapon = _weaponsInventory[weaponIndex];
+
+            if (weapon == null) continue;
+            if (weapon.stats.weaponName.Contains(evolution.BaseWeaponStats.weaponName))
+            {
+                var evolvedWeapon = Instantiate(evolution.EvolvedWeaponPrefab, transform.position, Quaternion.identity);
+                var evolvedWeaponController = evolvedWeapon.GetComponent<WeaponController>();
+
+                evolvedWeapon.transform.SetParent(transform);
+                AddWeapon(weaponIndex, evolvedWeaponController);
+                Destroy(weapon.gameObject);
+                _weaponLevels[weaponIndex] = evolvedWeaponController.stats.level;
+                _weaponUISlots[weaponIndex].sprite = evolvedWeaponController.stats.icon;
+                foreach (var weaponUpgrade in weaponUpgradeOptions)
+                {
+                    if (weaponUpgrade.weaponStats.weaponName.Contains(evolution.BaseWeaponStats.weaponName))
+                    {
+                        weaponUpgradeOptions.Remove(weaponUpgrade);
+                        AssignOptionIndexes();
+                        break;
+                    }
+                }
+                return;
+            }
+        }
     }
 }

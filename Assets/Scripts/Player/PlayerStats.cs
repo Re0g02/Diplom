@@ -94,7 +94,7 @@ public class PlayerStats : MonoBehaviour
         {
             currentExpirience = value;
             if (GameManager.instance != null)
-                GameManager.instance.ExpBarFillAmount = (float)currentExpirience / currentExpirienceCap;
+                GameManager.instance.ExpBarFillAmount = (float)value / currentExpirienceCap;
         }
     }
 
@@ -114,6 +114,7 @@ public class PlayerStats : MonoBehaviour
     private int currentLevel = 1;
     [SerializeField] private int currentExpirienceCap;
     [SerializeField] private List<LevelRange> levelRanges;
+
     [System.Serializable]
     private class LevelRange
     {
@@ -130,11 +131,19 @@ public class PlayerStats : MonoBehaviour
     private InvetntoryManager inventory;
     private int weaponIndex = 0;
     private int passiveItemIndex = 0;
-
+    [SerializeField] private PlayerScriptableObject _defaultPlayerStats;
+    [SerializeField] private ParticleSystem damageEffect;
     void Awake()
     {
-        _playerStats = CharacterSelector.GetData();
-        CharacterSelector.instance.DestroySingleton();
+        if (CharacterSelector.instance)
+        {
+            _playerStats = CharacterSelector.GetData();
+            CharacterSelector.instance.DestroySingleton();
+        }
+        else
+        {
+            _playerStats = _defaultPlayerStats;
+        }
         inventory = GetComponent<InvetntoryManager>();
 
         CurrentMaxHealth = _playerStats.maxHealth;
@@ -155,7 +164,7 @@ public class PlayerStats : MonoBehaviour
         CurrentExpirience = 0;
         CurrentLevel = 1;
         GameManager.instance.ChangePlayerLevelOnGameOverScreen(CurrentLevel);
-        currentExpirienceCap = levelRanges[0].expirienceCapIncrease;
+        currentExpirienceCap += levelRanges[0].expirienceCapIncrease;
     }
     void Update()
     {
@@ -197,6 +206,9 @@ public class PlayerStats : MonoBehaviour
         if (!isInvincible)
         {
             CurrentHealth -= dmg;
+
+            if (damageEffect) Instantiate(damageEffect, transform.position, Quaternion.identity);
+
             invincibilityTimer = _invincibilityDuration;
             isInvincible = true;
 
@@ -212,6 +224,7 @@ public class PlayerStats : MonoBehaviour
         if (GameManager.instance != null)
             if (!GameManager.instance.IsGameOver)
             {
+                GameManager.instance.ChangePlayerInventoryOnGameOverScreen(inventory.weaponUI, inventory.itemUI);
                 GameManager.instance.GameOver();
             }
     }

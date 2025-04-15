@@ -5419,6 +5419,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082593461}
   m_CullTransparentMesh: 1
+--- !u!1001 &1090018465
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1249824173689476824, guid: 40759baf26cc28f4da9f950d9bd6654e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249824173689476824, guid: 40759baf26cc28f4da9f950d9bd6654e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.13723804
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249824173689476824, guid: 40759baf26cc28f4da9f950d9bd6654e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249824173689476824, guid: 40759baf26cc28f4da9f950d9bd6654e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249824173689476824, guid: 40759baf26cc28f4da9f950d9bd6654e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249824173689476824, guid: 40759baf26cc28f4da9f950d9bd6654e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249824173689476824, guid: 40759baf26cc28f4da9f950d9bd6654e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249824173689476824, guid: 40759baf26cc28f4da9f950d9bd6654e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249824173689476824, guid: 40759baf26cc28f4da9f950d9bd6654e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249824173689476824, guid: 40759baf26cc28f4da9f950d9bd6654e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7841543673686747032, guid: 40759baf26cc28f4da9f950d9bd6654e, type: 3}
+      propertyPath: m_Name
+      value: TreasureChest
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 40759baf26cc28f4da9f950d9bd6654e, type: 3}
 --- !u!1 &1094155142
 GameObject:
   m_ObjectHideFlags: 0
@@ -6973,7 +7030,7 @@ MonoBehaviour:
   - waveName: Wave 1
     enemyGroups:
     - enemyName: Slime
-      enemyCount: 3
+      enemyCount: 10
       enemySpawned: 0
       enemyPrefab: {fileID: 5742590444071634013, guid: 280e0d12f6146bf47867961a68b5b59f, type: 3}
     spawnInterval: 1
@@ -8533,7 +8590,6 @@ GameObject:
   - component: {fileID: 1845214522}
   - component: {fileID: 1845214517}
   - component: {fileID: 1845214524}
-  - component: {fileID: 1845214526}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -8816,18 +8872,7 @@ MonoBehaviour:
     upgradeDescriptionDisplay: {fileID: 677395710}
     upgradeIcon: {fileID: 21934190}
     upgradeButton: {fileID: 1275371814}
---- !u!114 &1845214526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845214514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3399fc8577d0a1544bc61717dab8b3d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  weaponEvolutions: []
 --- !u!1 &1855003310
 GameObject:
   m_ObjectHideFlags: 0
@@ -10229,3 +10274,4 @@ SceneRoots:
   - {fileID: 750242800}
   - {fileID: 2709490}
   - {fileID: 1039573647}
+  - {fileID: 1090018465}

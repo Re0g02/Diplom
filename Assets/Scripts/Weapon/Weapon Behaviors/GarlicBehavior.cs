@@ -15,7 +15,7 @@ public class GarlicBehavior : MeleWeaponBehavior
         if (other.GetComponent<EnemyMovement>() && !hittedEnemies.Contains(other.gameObject))
         {
             var enemyStats = other.GetComponent<EnemyStats>();
-            enemyStats.TakeDamage(GetCurrentDamage());
+            enemyStats.TakeDamage(GetCurrentDamage(),transform.position);
 
             hittedEnemies.Add(other.gameObject);
         }

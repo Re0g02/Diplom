@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -47,6 +48,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image expBar;
     [SerializeField] private TextMeshProUGUI expText;
     private float currentTime;
+
+    [Header("Damage Text")]
+    [SerializeField] private Canvas _damageTextCanvas;
+    [SerializeField] private GameObject damageText;
+    [SerializeField] private Camera referenceCamera;
 
     private bool isChoosingUpdate = false;
     public GameObject playerObject;
@@ -219,5 +225,40 @@ public class GameManager : MonoBehaviour
         _levelUpScreen.SetActive(false);
         _gameUIScreen.SetActive(true);
         ChangeGameState(GameState.Play);
+    }
+
+    public static void GenerateDamageText(string text, Transform target, float radius, float duration = 1f, float speed = 1f)
+    {
+        if (!instance._damageTextCanvas) return;
+        if (!instance.referenceCamera) instance.referenceCamera = Camera.main;
+
+        instance.StartCoroutine(instance.GenerateDamageTextCorotune(text, target, radius, duration, speed));
+    }
+
+    IEnumerator GenerateDamageTextCorotune(string text, Transform target, float radius, float duration = 1f, float speed = 50f)
+    {
+        var textObj = Instantiate(damageText);
+        var textObjTMPro = textObj.GetComponent<TextMeshProUGUI>();
+        textObjTMPro.text = text;
+        Vector3 textPos = (UnityEngine.Random.insideUnitSphere * radius);
+        var textObjRect = textObj.GetComponent<RectTransform>();
+        textObjRect.position = referenceCamera.WorldToScreenPoint(textPos + target.position);
+
+        textObj.transform.SetParent(instance._damageTextCanvas.transform);
+
+        WaitForEndOfFrame w = new WaitForEndOfFrame();
+        float t = 0;
+        float yOffset = 0;
+        Vector3 currentTargetPos = new Vector3();
+        while (t < duration)
+        {
+            yield return w;
+            t += Time.deltaTime;
+            textObjTMPro.color = new Color(textObjTMPro.color.r, textObjTMPro.color.g, textObjTMPro.color.b, 1 - t / duration);
+            yOffset += speed * Time.deltaTime;
+            if (target) currentTargetPos = target.position;
+            textObjRect.position = referenceCamera.WorldToScreenPoint(textPos + currentTargetPos + new Vector3(0, yOffset));
+        }
+        Destroy(textObj.gameObject);
     }
 }

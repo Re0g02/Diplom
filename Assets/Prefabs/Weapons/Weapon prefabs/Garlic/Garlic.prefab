@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1324305199
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 13067b37928a596408795b23dce2308e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,7 +103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponStats: {fileID: 11400000, guid: bd998dc07646d284fad9ed0b43423b24, type: 2}
-  _weaponLifetime: 2
 --- !u!58 &644110011117533598
 CircleCollider2D:
   m_ObjectHideFlags: 0

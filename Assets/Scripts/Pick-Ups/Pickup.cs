@@ -3,6 +3,7 @@ using UnityEngine;
 public class Pickup : MonoBehaviour, ICollectible
 {
     protected bool hasBeenCollected = false;
+    public bool HasBeenCollected { get => hasBeenCollected; }
 
     public virtual void Collect()
     {
