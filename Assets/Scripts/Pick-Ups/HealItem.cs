@@ -9,6 +9,6 @@ public class HealItem : Pickup
         if (hasBeenCollected) return;
         else base.Collect();
         var player = FindFirstObjectByType<PlayerStats>();
-        player.Heal(_healthToHeal);
+        player.RestoreHealth(_healthToHeal);
     }
 }

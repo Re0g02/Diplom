@@ -8,7 +8,15 @@ public class ExpiriencePotion : Pickup
     {
         if (hasBeenCollected) return;
         else base.Collect();
-        var player = FindFirstObjectByType<PlayerStats>();
-        player.IncreaseExperience(_expirienceGiven);
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerStats>())
+        { 
+            var player = FindFirstObjectByType<PlayerStats>();
+            player.IncreaseExperience(_expirienceGiven);
+            Destroy(gameObject);
+        }
     }
 }

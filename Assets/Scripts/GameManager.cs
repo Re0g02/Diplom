@@ -158,11 +158,11 @@ public class GameManager : MonoBehaviour
         _gameUIScreen.SetActive(false);
     }
 
-    public void ChangePlayerUIOnGameOverScreen(PlayerScriptableObject playerStats)
+    public void ChangePlayerUIOnGameOverScreen(PlayerDataScriptableObject playerStats)
     {
-        _playerIcon.sprite = playerStats.icon;
+        _playerIcon.sprite = playerStats.Icon;
         _playerIcon.preserveAspect = true;
-        _playerName.text = playerStats.playerName;
+        _playerName.text = playerStats.Name;
     }
     public void ChangePlayerLevelOnGameOverScreen(int Level)
     {
@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour
     public void LevelUp()
     {
         ChangeGameState(GameState.LevelUp);
-        playerObject.SendMessage("RemoveAndApplyLevelUp");
+        playerObject.SendMessage("RemoveAndApplyUpgrades");
     }
 
     public void StartLevelUp()

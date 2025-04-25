@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ec034c5edb4f547b5356afcab80bd0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d453dcd7948b1442a77e3085c3caddf, type: 3}
   m_Name: Robin
   m_EditorClassIdentifier: 
-  _playerStartingWeapon: {fileID: 4245781957757919984, guid: 4be0ce671cca98e46b1c50f69b96b3d2, type: 3}
-  _playerMaxHealth: 6000000
-  _playerHealthRecovery: 5
-  _playerMoveSpeed: 6
-  _playerMight: 1
-  _playerProjectileSpeed: 0
-  _playerMagnet: 1.2
-  _playerIcon: {fileID: 1509690687825009327, guid: b9b60582051fd3248b9361a1eccfabec, type: 3}
-  _playerName: Robin
+  icon: {fileID: 0}
+  playerName: Robin
+  startingWeapon: {fileID: 11400000, guid: 956294d9367c7584b9755f0f1d151801, type: 2}
+  stats:
+    maxHealth: 1000
+    recovery: 0
+    moveSpeed: 5
+    might: 1
+    speed: 1
+    magnet: 1.5

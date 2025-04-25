@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c98203e8803a5479936f4d3ab80073, type: 3}
+  m_Name: GridStone
+  m_EditorClassIdentifier: 
+  icon: {fileID: 3436459418995754391, guid: cba02ac3994f5d64ea6572aa7c94bc0b, type: 3}
+  maxLevel: 3
+  baseStats:
+    name: GridStone
+    description: Boost Might
+    boosts:
+      maxHealth: 0
+      recovery: 0
+      moveSpeed: 0
+      might: 1
+      speed: 0
+      magnet: 0
+  growth:
+  - name: 
+    description: +1 Might
+    boosts:
+      maxHealth: 0
+      recovery: 0
+      moveSpeed: 0
+      might: 0
+      speed: 0
+      magnet: 0
+  - name: 
+    description: +2 Might
+    boosts:
+      maxHealth: 0
+      recovery: 0
+      moveSpeed: 0
+      might: 2
+      speed: 0
+      magnet: 0

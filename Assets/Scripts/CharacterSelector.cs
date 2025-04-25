@@ -4,7 +4,7 @@ using UnityEngine;
 public class CharacterSelector : MonoBehaviour
 {
     public static CharacterSelector instance;
-    private PlayerScriptableObject characterStats;
+    private PlayerDataScriptableObject playerStats;
 
     void Awake()
     {
@@ -19,17 +19,30 @@ public class CharacterSelector : MonoBehaviour
         }
     }
 
-    public static PlayerScriptableObject GetData()
+    public static PlayerDataScriptableObject GetData()
     {
-        return instance.characterStats;
+        if (instance && instance.playerStats)
+        {
+            return instance.playerStats;
+        }
+        else
+        {
+            PlayerDataScriptableObject[] players = Resources.FindObjectsOfTypeAll<PlayerDataScriptableObject>();
+            if (players.Length > 0)
+            {
+                return players[Random.Range(0, players.Length)];
+            }
+        }
+        return null;
     }
 
-    public void SelectCharacter(PlayerScriptableObject character)
+    public void SelectCharacter(PlayerDataScriptableObject player)
     {
-        characterStats = character;
+        playerStats = player;
     }
 
-    public void DestroySingleton(){
+    public void DestroySingleton()
+    {
         instance = null;
         Destroy(gameObject);
     }
