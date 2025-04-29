@@ -47,6 +47,31 @@ public class PlayerInventory : MonoBehaviour
 
     public List<Slot> WeaponSlots { get => weaponSlots; }
     public List<Slot> PassiveItemSlots { get => passiveItemSlots; }
+    public List<Image> WeaponImages
+    {
+        get
+        {
+            var list = new List<Image>();
+            foreach (var Weapon in weaponSlots)
+            {
+                list.Add(Weapon.image);
+            }
+            return list;
+        }
+    }
+
+    public List<Image> PassiveItemImages
+    {
+        get
+        {
+            var list = new List<Image>();
+            foreach (var passiveItem in PassiveItemSlots)
+            {
+                list.Add(passiveItem.image);
+            }
+            return list;
+        }
+    }
 
     [System.Serializable]
     public class UpgradeUI
@@ -201,7 +226,7 @@ public class PlayerInventory : MonoBehaviour
         p.transform.SetParent(transform);
         p.transform.localPosition = Vector2.zero;
         passiveItemSlots[slotNum].Assign(p);
-        
+
 
         if (GameManager.instance != null && GameManager.instance.IsChoosingUpdate)
         {

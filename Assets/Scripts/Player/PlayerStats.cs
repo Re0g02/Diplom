@@ -314,6 +314,8 @@ public class PlayerStats : MonoBehaviour
         if (!GameManager.instance.IsGameOver)
         {
             GameManager.instance.ChangePlayerLevelOnGameOverScreen(Level);
+            GameManager.instance.ChangePlayerUIOnGameOverScreen(playerData);
+            GameManager.instance.ChangePlayerInventoryOnGameOverScreen(inventory.WeaponImages, inventory.PassiveItemImages);
             GameManager.instance.GameOver();
         }
     }

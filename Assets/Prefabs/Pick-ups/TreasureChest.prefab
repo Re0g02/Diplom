@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3084524944094015102}
   - component: {fileID: 5379165807133441687}
   - component: {fileID: 7326662770107101012}
+  - component: {fileID: 8516864183558361058}
   m_Layer: 0
   m_Name: TreasureChest
   m_TagString: Untagged
@@ -162,3 +163,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8516864183558361058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7841543673686747032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea9bb6c668df904099eb41fdd1ef2a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

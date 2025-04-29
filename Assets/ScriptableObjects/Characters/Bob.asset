@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d453dcd7948b1442a77e3085c3caddf, type: 3}
   m_Name: Bob
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 1509690687825009327, guid: b9b60582051fd3248b9361a1eccfabec, type: 3}
   playerName: Bob
   startingWeapon: {fileID: 11400000, guid: 956294d9367c7584b9755f0f1d151801, type: 2}
   stats:
     maxHealth: 1000
-    recovery: 0
+    recovery: 0.2
     moveSpeed: 5
     might: 1
     speed: 1

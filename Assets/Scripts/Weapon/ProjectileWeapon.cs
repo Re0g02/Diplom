@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
 public class ProjectileWeapon : Weapon
@@ -38,7 +39,7 @@ public class ProjectileWeapon : Weapon
                                         playerStats.transform.position + (Vector3)GetAttackOffset(attackAngle),
                                         Quaternion.Euler(0, 0, attackAngle));
         prefab.Intitialize(this, playerStats);
-        
+
         if (currentCooldown <= 0)
             currentCooldown += weaponStats.cooldown;
         attackCount--;
@@ -61,6 +62,15 @@ public class ProjectileWeapon : Weapon
     {
         return Quaternion.Euler(0, 0, attackAngle) * new Vector2(Random.Range(weaponStats.spawnVariance.xMin, weaponStats.spawnVariance.xMax),
                                                                 Random.Range(weaponStats.spawnVariance.yMin, weaponStats.spawnVariance.yMax));
+    }
+
+    protected virtual void OnDestroy()
+    {
+        var list = FindObjectsByType<Projectile>(FindObjectsSortMode.None);
+        foreach (var i in list)
+        {
+            Destroy(i.gameObject);
+        }
     }
 
 }
