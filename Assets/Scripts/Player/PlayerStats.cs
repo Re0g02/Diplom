@@ -6,6 +6,8 @@ public class PlayerStats : MonoBehaviour
     private PlayerDataScriptableObject playerData;
     private PlayerDataScriptableObject.Stats baseStats;
     private PlayerDataScriptableObject.Stats actualStats;
+    private Animator playerAnimator;
+    private SpriteRenderer playerSpriteRenderer;
     private float health;
 
     #region Stats Properties
@@ -190,11 +192,8 @@ public class PlayerStats : MonoBehaviour
     }
     #endregion
 
-    [SerializeField]
-    private ParticleSystem damageEffect;
-
-    [SerializeField]
-    private int experience = 0;
+    [SerializeField] private ParticleSystem damageEffect;
+    [SerializeField] private int experience = 0;
     [SerializeField] private int level = 0;
     [SerializeField] private int experienceCap;
 
@@ -218,24 +217,23 @@ public class PlayerStats : MonoBehaviour
 
     void Awake()
     {
-        playerData = CharacterSelector.GetData();
+        playerData = CharacterSelector.GetPlayerData();
         CharacterSelector.instance.DestroySingleton();
         inventory = GetComponent<PlayerInventory>();
         baseStats = actualStats = playerData.playerStats;
         CurrentHealth = actualStats.maxHealth;
+        playerAnimator = GetComponent<Animator>();
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     void Start()
     {
         inventory.Add(playerData.StartingWeapon);
-        GameManager.instance.currentHealthText = "Health: " + CurrentHealth;
-        GameManager.instance.currentRecoveryText = "Recovery: " + CurrentRecovery;
-        GameManager.instance.currentMoveSpeedText = "Move Speed: " + CurrentMoveSpeed;
-        GameManager.instance.currentMightText = "Might: " + CurrentMight;
-        GameManager.instance.currentProjectileSpeedText = "Projectile Speed: " + CurrentProjectileSpeed;
-        GameManager.instance.currentMagnetText = "Magnet: " + CurrentMagnet;
-
+        ChangePlayerStatsDisplay();
         GameManager.instance.ChangePlayerUIOnGameOverScreen(playerData);
+        playerSpriteRenderer.sprite = playerData.Icon;
+        playerAnimator.runtimeAnimatorController = playerData.PlayerAnimatorController;
     }
 
     void Update()
@@ -263,6 +261,7 @@ public class PlayerStats : MonoBehaviour
                 actualStats += p.GetBoosts();
             }
         }
+        ChangePlayerStatsDisplay();
     }
 
     public void IncreaseExperience(int amount)
@@ -370,5 +369,15 @@ public class PlayerStats : MonoBehaviour
         controller.transform.SetParent(transform);
 
         passiveItemIndex++;
+    }
+
+    private void ChangePlayerStatsDisplay()
+    {
+        GameManager.instance.currentHealthText = "Health: " + CurrentHealth;
+        GameManager.instance.currentRecoveryText = "Recovery: " + CurrentRecovery;
+        GameManager.instance.currentMoveSpeedText = "Move Speed: " + CurrentMoveSpeed;
+        GameManager.instance.currentMightText = "Might: " + CurrentMight;
+        GameManager.instance.currentProjectileSpeedText = "Projectile Speed: " + CurrentProjectileSpeed;
+        GameManager.instance.currentMagnetText = "Magnet: " + CurrentMagnet;
     }
 }

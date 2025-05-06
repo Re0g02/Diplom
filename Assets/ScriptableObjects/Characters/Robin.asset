@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 1509690687825009327, guid: b9b60582051fd3248b9361a1eccfabec, type: 3}
   playerName: Robin
-  startingWeapon: {fileID: 11400000, guid: 956294d9367c7584b9755f0f1d151801, type: 2}
+  startingWeapon: {fileID: 11400000, guid: 624842a758c3e904889bcbb7f5b623d8, type: 2}
+  playerAnimatorController: {fileID: 9100000, guid: 049278f1a96f2a541877309670813295, type: 2}
   stats:
     maxHealth: 1000
     recovery: 0.2

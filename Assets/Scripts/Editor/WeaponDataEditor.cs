@@ -2,7 +2,6 @@ using UnityEditor;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using UnityEngine;
 
 [CustomEditor(typeof(WeaponDataScriptableObject))]
 public class WeaponDataEditor : Editor

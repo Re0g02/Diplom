@@ -6474,6 +6474,7 @@ GameObject:
   - component: {fileID: 4421645365491551558}
   - component: {fileID: 7594665284782366690}
   - component: {fileID: 5534640902522409009}
+  - component: {fileID: 8350782107610012140}
   m_Layer: 6
   m_Name: Terrain Chunk 2
   m_TagString: Untagged
@@ -6584,6 +6585,26 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 24, y: 24}
   m_EdgeRadius: 0
+--- !u!114 &8350782107610012140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7322590197851396955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3e381509d7d5c4ba1c424b5efb71fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Right: {fileID: 7322590197851396955, guid: 43880dc3daa90604f84b889393717c4a, type: 3}
+  Left: {fileID: 7322590197851396955, guid: 28514830c234d3546ba7d427ade18d23, type: 3}
+  Up: {fileID: 7322590197851396955}
+  Down: {fileID: 7322590197851396955}
+  UpLeft: {fileID: 7322590197851396955, guid: 28514830c234d3546ba7d427ade18d23, type: 3}
+  DownLeft: {fileID: 7322590197851396955, guid: 28514830c234d3546ba7d427ade18d23, type: 3}
+  UpRight: {fileID: 7322590197851396955, guid: 43880dc3daa90604f84b889393717c4a, type: 3}
+  DownRight: {fileID: 7322590197851396955, guid: 43880dc3daa90604f84b889393717c4a, type: 3}
 --- !u!1 &8990924867636535249
 GameObject:
   m_ObjectHideFlags: 0

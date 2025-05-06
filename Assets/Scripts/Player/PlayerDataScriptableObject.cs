@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Player Data", menuName = "ScriptableObjects/PlayerData")]
@@ -6,9 +7,11 @@ public class PlayerDataScriptableObject : ScriptableObject
     [SerializeField] private Sprite icon;
     [SerializeField] private string playerName;
     [SerializeField] private WeaponDataScriptableObject startingWeapon;
+    [SerializeField] private AnimatorController playerAnimatorController;
     public Sprite Icon { get => icon; private set => icon = value; }
     public string Name { get => playerName; private set => playerName = value; }
     public WeaponDataScriptableObject StartingWeapon { get => startingWeapon; private set => startingWeapon = value; }
+    public AnimatorController PlayerAnimatorController { get => playerAnimatorController; }
 
     [System.Serializable]
     public struct Stats

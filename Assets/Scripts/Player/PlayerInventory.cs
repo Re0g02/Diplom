@@ -199,9 +199,13 @@ public class PlayerInventory : MonoBehaviour
             spawnedWeapon.OnEquip();
             weaponSlots[slotNum].Assign(spawnedWeapon);
 
-            if (GameManager.instance != null && GameManager.instance.IsChoosingUpdate)
+            if (GameManager.instance != null)
             {
-                GameManager.instance.EndLevelUp();
+                GameManager.instance.ChangePlayerInventoryOnGameOverScreen(WeaponImages, PassiveItemImages);
+                if (GameManager.instance.IsChoosingUpdate)
+                {
+                    GameManager.instance.EndLevelUp();
+                }
             }
             return slotNum;
         }
@@ -228,9 +232,13 @@ public class PlayerInventory : MonoBehaviour
         passiveItemSlots[slotNum].Assign(p);
 
 
-        if (GameManager.instance != null && GameManager.instance.IsChoosingUpdate)
+        if (GameManager.instance != null)
         {
-            GameManager.instance.EndLevelUp();
+            GameManager.instance.ChangePlayerInventoryOnGameOverScreen(WeaponImages, PassiveItemImages);
+            if (GameManager.instance.IsChoosingUpdate)
+            {
+                GameManager.instance.EndLevelUp();
+            }
         }
         playerStats.RecalculateStats();
 

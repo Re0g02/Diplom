@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MapController : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _chunkPrefabs;
-    [SerializeField] private GameObject _player;
+    private List<GameObject> _chunkPrefabs;
     [SerializeField] private float _chunkCheckRadius;
     [SerializeField] private LayerMask _terrainMask;
     [SerializeField] private GameObject _ChunksContainer;
@@ -14,14 +14,25 @@ public class MapController : MonoBehaviour
 
     [Header("Optimization")]
     [SerializeField] private float _maxOptimizationDistance;
-    [SerializeField] private List<GameObject> spawnedChunks = new List<GameObject>();
+    private List<GameObject> spawnedChunks = new List<GameObject>();
     [SerializeField] private float OptimizationDuration;
     private float OptimizationCd = 0;
     private Vector3 playerLastPosition;
+    private GameObject _player;
+    private LevelDataScriptableObject levelData;
+    private GameObject startingChunk;
 
     void Start()
     {
+        _player = FindFirstObjectByType<PlayerStats>().gameObject;
         playerLastPosition = _player.transform.position;
+        levelData = LevelSelector.GetLevelData();
+        LevelSelector.instance.DestroySingleton();
+        _chunkPrefabs = levelData.LevelPrefabs;
+        startingChunk = levelData.StartingChunk;
+        SpawnChunk(_player.transform.position, null);
+        CheckAndSpawnChunk("Left");
+        CheckAndSpawnChunk("Right");
     }
 
     void Update()
@@ -85,12 +96,11 @@ public class MapController : MonoBehaviour
     void CheckAndSpawnChunk(string direction)
     {
         if (!Physics2D.OverlapCircle(currentChunk.transform.Find("Static Points/" + direction).position, _chunkCheckRadius, _terrainMask))
-            SpawnChunk(currentChunk.transform.Find("Static Points/" + direction).position);
+            SpawnChunk(currentChunk.transform.Find("Static Points/" + direction).position, direction);
     }
     string GetDirectionName(Vector3 direction)
     {
         direction = direction.normalized;
-
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
             if (direction.y > 0.5f)
@@ -122,10 +132,29 @@ public class MapController : MonoBehaviour
             }
         }
     }
-    void SpawnChunk(Vector3 chunkSpawnPosition)
+
+    void SpawnChunk(Vector3 chunkSpawnPosition, string direction)
     {
-        var randomChunkIndex = UnityEngine.Random.Range(0, _chunkPrefabs.Count);
-        var LastestChunk = Instantiate(_chunkPrefabs[randomChunkIndex], chunkSpawnPosition, quaternion.identity);
+        GameObject LastestChunk;
+        if (currentChunk == null)
+        {
+            LastestChunk = Instantiate(startingChunk, chunkSpawnPosition, quaternion.identity);
+            LastestChunk.GetComponent<AvailableChunks>().SetUpAndDown(startingChunk.GetComponent<AvailableChunks>().GetChunkByDirection("Up"),
+                                                                    startingChunk.GetComponent<AvailableChunks>().GetChunkByDirection("Down"));
+            currentChunk = LastestChunk;
+        }
+        else
+        {
+            var chunkToSpawn = currentChunk.GetComponent<AvailableChunks>().GetChunkByDirection(direction);
+            if (chunkToSpawn == null)
+            {
+                var randomChunkIndex = UnityEngine.Random.Range(0, _chunkPrefabs.Count);
+                chunkToSpawn = _chunkPrefabs[randomChunkIndex];
+            }
+            LastestChunk = Instantiate(chunkToSpawn, chunkSpawnPosition, quaternion.identity);
+            LastestChunk.GetComponent<AvailableChunks>().SetUpAndDown(chunkToSpawn.GetComponent<AvailableChunks>().GetChunkByDirection("Up"),
+                                                                    chunkToSpawn.GetComponent<AvailableChunks>().GetChunkByDirection("Down"));
+        }
         spawnedChunks.Add(LastestChunk);
         LastestChunk.transform.parent = _ChunksContainer.transform;
     }
