@@ -10,7 +10,12 @@ public class LevelDataScriptableObject : ScriptableObject
     [SerializeField] private Sprite levelPreview;
     [SerializeField] private List<GameObject> chunkPrefabs;
     [SerializeField] private GameObject startingChunk;
+    [SerializeField] private Cell cellPrefab;
+    [SerializeField] private GameObject enemySpawner;
     public List<GameObject> LevelPrefabs { get => chunkPrefabs; }
     public GameObject StartingChunk { get => startingChunk; }
+    public Cell CellPrefab { get => cellPrefab; }
+    public GameObject EnemySpawner { get => enemySpawner; }
+
 
 }

@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc233d409b1150c4e88c1de700664821, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  icon: {fileID: -8848109906535381355, guid: cba02ac3994f5d64ea6572aa7c94bc0b, type: 3}
+  icon: {fileID: 8252832280146312153, guid: 07360fdd8e60dc844bc09f783d525d08, type: 3}
   maxLevel: 1
   evolutionData: []
-  behaviour: ProjectileWeapon
   baseStats:
     name: Sword
     description: Sword

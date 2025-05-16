@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 5715392367707818601, guid: c34ce4bc30b002f49b9cecc43e53c7a9, type: 3}
   playerName: Veollo
-  startingWeapon: {fileID: 11400000, guid: 624842a758c3e904889bcbb7f5b623d8, type: 2}
-  playerAnimatorController: {fileID: 9100000, guid: cd3be3ac75707d5449e9eb2cf458b52e, type: 2}
+  startingWeapon: {fileID: 11400000, guid: 956294d9367c7584b9755f0f1d151801, type: 2}
+  playerAnimatorController: {fileID: 22100000, guid: 4e042020c33c4ea429284ba2c09814a0, type: 2}
   stats:
     maxHealth: 1000
-    recovery: 0.2
+    recovery: 2
     moveSpeed: 5
-    might: 1
+    might: 1.2
     speed: 1
     magnet: 1.5

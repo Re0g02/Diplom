@@ -24,7 +24,6 @@ public class EnemySpawner : MonoBehaviour
     }
 
     [SerializeField] private List<EnemyWave> _waves;
-    [SerializeField] private List<Transform> enemySpawnPoints;
     [SerializeField] private float _waveInterval;
     [SerializeField] private float _maxEnemiesAllowed;
     [SerializeField] private float _enemySpawnRadiusX;

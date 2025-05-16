@@ -16,7 +16,9 @@ MonoBehaviour:
   levelDescription: Fields
   levelPreview: {fileID: 2839316697585857279, guid: d63a075af1a703b4fb809bf1355127ca, type: 3}
   chunkPrefabs:
-  - {fileID: 7322590197851396955, guid: 43880dc3daa90604f84b889393717c4a, type: 3}
-  - {fileID: 7322590197851396955, guid: 28514830c234d3546ba7d427ade18d23, type: 3}
-  - {fileID: 7322590197851396955, guid: d5abba909fd1d9940abf8bb2ec482f04, type: 3}
-  startingChunk: {fileID: 7322590197851396955, guid: 43880dc3daa90604f84b889393717c4a, type: 3}
+  - {fileID: 7322590197851396955, guid: 27a9350036fa09a4ab8f237845c89bd0, type: 3}
+  - {fileID: 7322590197851396955, guid: 1d8c9e0a94fe4354ba9d5f8c7e2d4b0b, type: 3}
+  - {fileID: 7322590197851396955, guid: f7757005644b94b4db8eb6e7bc27e60b, type: 3}
+  startingChunk: {fileID: 7322590197851396955, guid: 27a9350036fa09a4ab8f237845c89bd0, type: 3}
+  cellPrefab: {fileID: 2874244957753456922, guid: 3835144969a6a6b4e98ab483554f687d, type: 3}
+  enemySpawner: {fileID: 2760040051873252798, guid: 825a93ed48d68cb4780b7a8cc73182a4, type: 3}

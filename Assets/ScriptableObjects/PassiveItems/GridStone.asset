@@ -32,25 +32,25 @@ MonoBehaviour:
       maxHealth: 0
       recovery: 0
       moveSpeed: 0
-      might: 1
+      might: 0.5
       speed: 0
       magnet: 0
   growth:
   - name: GridStone
-    description: +1 Might
+    description: +0.5 Might
     boosts:
       maxHealth: 0
       recovery: 0
       moveSpeed: 0
-      might: 1
+      might: 0.5
       speed: 0
       magnet: 0
   - name: GridStone
-    description: +2 Might
+    description: +0.5 Might
     boosts:
       maxHealth: 0
       recovery: 0
       moveSpeed: 0
-      might: 2
+      might: 0.5
       speed: 0
       magnet: 0

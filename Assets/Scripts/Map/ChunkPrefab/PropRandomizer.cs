@@ -19,10 +19,6 @@ public class PropRandomizer : MonoBehaviour
             var propIndex = Random.Range(0, _propPrefabs.Count);
             var prop = Instantiate(_propPrefabs[propIndex], spawnPoint.transform.position, Quaternion.identity);
             prop.transform.parent = spawnPoint.transform;
-            var a = prop.AddComponent<TextMeshProUGUI>();
-            a.text = gameObject.name;
-            var a1 = prop.AddComponent<Test>();
-            a1.a1.Add(gameObject);
         }
     }
 }

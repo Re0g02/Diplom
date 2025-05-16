@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 8793639957104055765, guid: 91a2378caddc6ff4abe9cf51ae161e67, type: 3}
   playerName: Dezastro
-  startingWeapon: {fileID: 11400000, guid: 624842a758c3e904889bcbb7f5b623d8, type: 2}
-  playerAnimatorController: {fileID: 9100000, guid: 1a071b837340ce648a3ed0982e282e62, type: 2}
+  startingWeapon: {fileID: 11400000, guid: 253c97b418a6c094784c2bdd3cf8d7b3, type: 2}
+  playerAnimatorController: {fileID: 22100000, guid: e619449c48259fb419fec712f4f3d958, type: 2}
   stats:
     maxHealth: 1000
     recovery: 0.2
     moveSpeed: 5
-    might: 1
+    might: 0.9
     speed: 1
     magnet: 1.5

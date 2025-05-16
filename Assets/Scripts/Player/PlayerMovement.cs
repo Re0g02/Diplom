@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleDashInput()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !_isDashing && _dashCooldownTimer <= 0 && !GameManager.instance.IsGameOver)
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && !_isDashing && _dashCooldownTimer <= 0 && !GameManager.instance.IsGameOver)
         {
             _isDashing = true;
 

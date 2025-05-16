@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc5f9729e732ad49bf47ac9042ef974, type: 3}
+  m_Name: Level 2
+  m_EditorClassIdentifier: 
+  levelName: Desert
+  levelDescription: Desert
+  levelPreview: {fileID: 7815371044791450175, guid: 8dcf585d06ec15e4a8f3cd7307f6cc59, type: 3}
+  chunkPrefabs:
+  - {fileID: 7322590197851396955, guid: 748d8a6fd7becb545b1466164a183f82, type: 3}
+  - {fileID: 7322590197851396955, guid: d2a64c7a6cdccf346851c8e351a65869, type: 3}
+  - {fileID: 7322590197851396955, guid: a550d31cf92a50d4ebeca8fb5e2e3793, type: 3}
+  startingChunk: {fileID: 7322590197851396955, guid: 748d8a6fd7becb545b1466164a183f82, type: 3}
+  cellPrefab: {fileID: 2874244957753456922, guid: 6b05e78fc2d535b4292cd14cd2e963f5, type: 3}
+  enemySpawner: {fileID: 2760040051873252798, guid: ca356065e0407614096d02a48fa36a33, type: 3}

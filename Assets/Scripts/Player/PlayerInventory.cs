@@ -86,7 +86,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private List<WeaponDataScriptableObject> availableWeapons = new List<WeaponDataScriptableObject>();
     [SerializeField] private List<PassiveItemDataScriptableObject> availablePassives = new List<PassiveItemDataScriptableObject>();
     [SerializeField] private List<UpgradeUI> upgradeUIOptions = new List<UpgradeUI>(); //
-
+    [SerializeField] private Sprite healSprite;
     PlayerStats playerStats;
 
     void Start()
@@ -108,6 +108,7 @@ public class PlayerInventory : MonoBehaviour
         foreach (Slot s in passiveItemSlots)
         {
             PassiveItem p = s.item as PassiveItem;
+            if (p == null) return null;
             if (p.PassiveItemData == type)
             {
                 return p;
@@ -121,6 +122,7 @@ public class PlayerInventory : MonoBehaviour
         foreach (Slot s in weaponSlots)
         {
             Weapon w = s.item as Weapon;
+            if (w == null) return null;
             if (w.WeaponData == type)
             {
                 return w;
@@ -198,6 +200,7 @@ public class PlayerInventory : MonoBehaviour
             spawnedWeapon.transform.localPosition = Vector2.zero;
             spawnedWeapon.OnEquip();
             weaponSlots[slotNum].Assign(spawnedWeapon);
+            if (spawnedWeapon.CurrentLevel >= spawnedWeapon.WeaponData.MaxLevel) availableWeapons.Remove(spawnedWeapon.WeaponData);
 
             if (GameManager.instance != null)
             {
@@ -230,7 +233,7 @@ public class PlayerInventory : MonoBehaviour
         p.transform.SetParent(transform);
         p.transform.localPosition = Vector2.zero;
         passiveItemSlots[slotNum].Assign(p);
-
+        if (p.CurrentLevel >= p.PassiveItemData.MaxLevel) availablePassives.Remove(p.PassiveItemData);
 
         if (GameManager.instance != null)
         {
@@ -259,6 +262,7 @@ public class PlayerInventory : MonoBehaviour
             Weapon weapon = weaponSlots[slotIndex].item as Weapon;
 
             if (!weapon.DoLevelUp()) return;
+            if (weapon.CurrentLevel >= weapon.WeaponData.MaxLevel) availableWeapons.Remove(weapon.WeaponData);
 
             if (GameManager.instance != null && GameManager.instance.IsChoosingUpdate)
             {
@@ -274,6 +278,7 @@ public class PlayerInventory : MonoBehaviour
             PassiveItem p = passiveItemSlots[slotIndex].item as PassiveItem;
 
             if (!p.DoLevelUp()) return;
+            if (p.CurrentLevel >= p.PassiveItemData.MaxLevel) availablePassives.Remove(p.PassiveItemData);
 
             if (GameManager.instance != null && GameManager.instance.IsChoosingUpdate)
             {
@@ -287,13 +292,21 @@ public class PlayerInventory : MonoBehaviour
     {
         List<WeaponDataScriptableObject> availableWeaponUpgrades = new List<WeaponDataScriptableObject>(availableWeapons);
         List<PassiveItemDataScriptableObject> availablePassiveItemUpgrades = new List<PassiveItemDataScriptableObject>(availablePassives);
-
+        if (availableWeapons.Count == 0 && availablePassives.Count == 0)
+        {
+            EnableUpgradeUI(upgradeUIOptions[0]);
+            upgradeUIOptions[0].upgradeButton.onClick.AddListener(() => RestorePlayerHealth(100f));
+            upgradeUIOptions[0].upgradeDescriptionDisplay.text = "Restore 100 health";
+            upgradeUIOptions[0].upgradeNameDisplay.text = "Heart vitamins";
+            upgradeUIOptions[0].upgradeIcon.sprite = healSprite;
+            return;
+        }
         foreach (UpgradeUI upgradeOption in upgradeUIOptions)
         {
+            int upgradeType;
             if (availableWeaponUpgrades.Count == 0 && availablePassiveItemUpgrades.Count == 0)
                 return;
-            int upgradeType;
-            if (availableWeaponUpgrades.Count == 0)
+            else if (availableWeaponUpgrades.Count == 0)
             {
                 upgradeType = 2;
             }
@@ -409,5 +422,13 @@ public class PlayerInventory : MonoBehaviour
     {
         ui.upgradeNameDisplay.transform.parent.gameObject.SetActive(true);
     }
-}
 
+    void RestorePlayerHealth(float health)
+    {
+        playerStats.RestoreHealth(100f);
+        if (GameManager.instance != null && GameManager.instance.IsChoosingUpdate)
+        {
+            GameManager.instance.EndLevelUp();
+        }
+    }
+}

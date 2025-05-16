@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Weapon Data", menuName = "ScriptableObjects/WeaponData")]
 public class WeaponDataScriptableObject : ItemDataScriptableObject
 {
-    [SerializeField] private string behaviour;
+    private string behaviour;
     [SerializeField] private Weapon.Stats baseStats;
     [SerializeField] private Weapon.Stats[] levelUpStats;
     [SerializeField] private Weapon.Stats[] randomLevelUpStats;

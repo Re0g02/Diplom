@@ -7,25 +7,28 @@ public class EnemyMovement : MonoBehaviour
     private Transform playerTransform;
     private Vector2 knockbackVelocity;
     private float knockbackDuration;
+    private Rigidbody2D enemyRB;
 
     void Start()
     {
         playerTransform = FindFirstObjectByType<PlayerMovement>().transform;
         enemy = GetComponent<EnemyStats>();
+        enemyRB = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
         if (knockbackDuration > 0)
         {
-            transform.position += (Vector3)knockbackVelocity * Time.deltaTime;
+
+            enemyRB.MovePosition(enemyRB.position + knockbackVelocity * Time.fixedDeltaTime);
             knockbackDuration -= Time.deltaTime;
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position,
+            enemyRB.MovePosition(Vector2.MoveTowards(enemyRB.position,
                                                     playerTransform.position,
-                                                    enemy.currentMoveSpeed * Time.deltaTime);
+                                                    enemy.currentMoveSpeed * Time.fixedDeltaTime));
         }
 
         if ((transform.position.x < playerTransform.position.x && transform.localScale.x > 0) ||

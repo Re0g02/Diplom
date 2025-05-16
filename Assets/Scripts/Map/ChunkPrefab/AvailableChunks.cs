@@ -41,8 +41,5 @@ public class AvailableChunks : MonoBehaviour
     {
         Down = down;
         Up = up;
-        int[] a;
     }
-
-
 }

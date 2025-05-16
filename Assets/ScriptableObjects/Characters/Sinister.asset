@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -1874379516817139270, guid: e766e3625bf8aab4c9d093e20d5e5961, type: 3}
   playerName: Sinister
-  startingWeapon: {fileID: 11400000, guid: 624842a758c3e904889bcbb7f5b623d8, type: 2}
-  playerAnimatorController: {fileID: 9100000, guid: d627f5cef4d6fa24389df0df81c7c3e1, type: 2}
+  startingWeapon: {fileID: 11400000, guid: 24f762f06e727e749bd5ccf2b5d1dcb7, type: 2}
+  playerAnimatorController: {fileID: 22100000, guid: e1e04ed1567fd8544865914d0440e352, type: 2}
   stats:
-    maxHealth: 1000
-    recovery: 0.2
-    moveSpeed: 5
-    might: 1
+    maxHealth: 1400
+    recovery: 3
+    moveSpeed: 4
+    might: 0.9
     speed: 1
     magnet: 1.5

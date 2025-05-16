@@ -27,7 +27,7 @@ public class MapController : MonoBehaviour
         _player = FindFirstObjectByType<PlayerStats>().gameObject;
         playerLastPosition = _player.transform.position;
         levelData = LevelSelector.GetLevelData();
-        LevelSelector.instance.DestroySingleton();
+        Instantiate(LevelSelector.GetLevelData().EnemySpawner);
         _chunkPrefabs = levelData.LevelPrefabs;
         startingChunk = levelData.StartingChunk;
         SpawnChunk(_player.transform.position, null);
@@ -176,5 +176,10 @@ public class MapController : MonoBehaviour
             else
                 chunk.SetActive(true);
         }
+    }
+
+    void OnDestroy()
+    {
+        LevelSelector.instance.DestroySingleton();
     }
 }

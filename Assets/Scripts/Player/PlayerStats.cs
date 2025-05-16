@@ -287,6 +287,7 @@ public class PlayerStats : MonoBehaviour
                 }
             }
             experienceCap += experienceCapIncrease;
+            GameManager.instance.ChangePlayerLevelOnGameOverScreen(Level);
             GameManager.instance.LevelUp();
         }
     }

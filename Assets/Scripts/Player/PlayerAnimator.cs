@@ -24,7 +24,7 @@ public class PlayerAnimator : MonoBehaviour
             _playerAnimator.SetBool("IsMoving", false);
     }
 
-    bool CheckSpriteDirection()
+    public bool CheckSpriteDirection()
     {
         bool spriteDirection;
 

@@ -15,7 +15,6 @@ MonoBehaviour:
   icon: {fileID: 3918897264366810801, guid: cba02ac3994f5d64ea6572aa7c94bc0b, type: 3}
   maxLevel: 2
   evolutionData: []
-  behaviour: AuraWeapon
   baseStats:
     name: Garlic
     description: Garlic Weapon
