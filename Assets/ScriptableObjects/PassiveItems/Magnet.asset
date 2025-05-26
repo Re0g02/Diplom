@@ -17,7 +17,7 @@ MonoBehaviour:
   evolutionData: []
   baseStats:
     name: Magnet
-    description: Boost magnet
+    description: Boost Magnet
     boosts:
       maxHealth: 0
       recovery: 0

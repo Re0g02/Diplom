@@ -57,7 +57,6 @@ public abstract class Item : MonoBehaviour
     {
         if (evolution.evolutionLevel > currentLevel + levelUpAmount)
         {
-            Debug.LogWarning(string.Format("Evolution failed. Current level {0}, evolution level {1}", currentLevel, evolution.evolutionLevel));
             return false;
         }
         foreach (ItemDataScriptableObject.Evolution.Config c in evolution.catalysts)

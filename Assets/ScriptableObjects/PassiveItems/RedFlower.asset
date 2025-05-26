@@ -17,7 +17,7 @@ MonoBehaviour:
   evolutionData: []
   baseStats:
     name: RedFlower
-    description: RedFlower
+    description: Boost Recovery
     boosts:
       maxHealth: 0
       recovery: 0.5

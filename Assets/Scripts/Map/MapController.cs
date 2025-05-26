@@ -177,9 +177,4 @@ public class MapController : MonoBehaviour
                 chunk.SetActive(true);
         }
     }
-
-    void OnDestroy()
-    {
-        LevelSelector.instance.DestroySingleton();
-    }
 }

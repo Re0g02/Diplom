@@ -52,8 +52,12 @@ public class GameManager : MonoBehaviour
     [Header("Damage Text")]
     [SerializeField] private GameObject damageText;
     [SerializeField] private Camera referenceCamera;
+    [SerializeField] private AudioClip lvlSound;
+    [SerializeField] private AudioClip loseSound;
 
     private bool isChoosingUpdate = false;
+    private AudioSource audioSource;
+    private AudioSource backgroundMusic;
     public GameObject playerObject;
 
     public String currentHealthText { get => _currentHealthText.text; set => _currentHealthText.text = value; }
@@ -70,6 +74,8 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+        backgroundMusic = FindFirstObjectByType<Camera>().GetComponent<AudioSource>();
         Time.timeScale = 1f;
         if (instance == null) instance = this;
         else Destroy(gameObject);
@@ -106,6 +112,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentGameState == GameState.Paused)
             return;
+        backgroundMusic.Pause();
         previosGameState = currentGameState;
         ChangeGameState(GameState.Paused);
         _pauseScreen.SetActive(true);
@@ -117,6 +124,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentGameState != GameState.Paused)
             return;
+        backgroundMusic.UnPause();
         ChangeGameState(previosGameState);
         _pauseScreen.SetActive(false);
         _gameUIScreen.SetActive(true);
@@ -145,6 +153,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        backgroundMusic.Stop();
+        audioSource.clip = loseSound;
+        audioSource.Play();
         _playerTimerText.text = _timerText.text;
         ChangeGameState(GameState.Gameover);
     }
@@ -204,6 +215,8 @@ public class GameManager : MonoBehaviour
 
     public void LevelUp()
     {
+        audioSource.clip = lvlSound;
+        audioSource.Play();
         ChangeGameState(GameState.LevelUp);
         playerObject.SendMessage("RemoveAndApplyUpgrades");
     }

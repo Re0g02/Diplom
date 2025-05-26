@@ -25,12 +25,13 @@ MonoBehaviour:
     outcome:
       itemType: {fileID: 11400000, guid: 327d003e2052eca40b484c5f37779b92, type: 2}
       level: 1
+  behaviour: ProjectileWeapon
   baseStats:
     name: Knife
     description: Knife lvl.1
     projectilePrefab: {fileID: 5734068742083105825, guid: ce214f10a6b1d7b4ebcbe462c28ae3f1, type: 3}
     auraPrefab: {fileID: 0}
-    hitEffect: {fileID: 0}
+    hitEffect: {fileID: 2795220325498702903, guid: 4cae50739e0d4b249a3764307441c38d, type: 3}
     spawnVariance:
       serializedVersion: 2
       x: 0.5
@@ -38,12 +39,12 @@ MonoBehaviour:
       width: -0.5
       height: -0.5
     lifeTime: 3
-    damage: 6.5
+    damage: 15
     damageVariance: 2
     damageArea: 1
     speed: 10
-    cooldown: 1
-    projectileInterval: 0.3
+    cooldown: 2
+    projectileInterval: 0.1
     knockback: 0.5
     projectileQuantity: 1
     maxProjectileQuantity: 50
@@ -72,7 +73,7 @@ MonoBehaviour:
     maxProjectileQuantity: 0
     punching: 0
   - name: Knife lvl.3
-    description: +5 damage
+    description: +2 Punching
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -92,7 +93,7 @@ MonoBehaviour:
     knockback: 0
     projectileQuantity: 0
     maxProjectileQuantity: 0
-    punching: 0
+    punching: 2
   - name: Knife lvl.4
     description: -0.4 cooldown
     projectilePrefab: {fileID: 0}

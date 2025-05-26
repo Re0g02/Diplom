@@ -5,7 +5,6 @@ public class ProjectileWeapon : Weapon
 {
     protected float currentAttackInterval;
     protected int currentAttackCount;
-
     protected override void Update()
     {
         base.Update();

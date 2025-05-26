@@ -5,13 +5,9 @@ public class WhipWeapon : ProjectileWeapon
     int currentSpawnCount;
     float currentSpawnYOffset;
     PlayerAnimator playerAnimator;
-
-    void Start()
-    {
-        playerAnimator = playerMovement.gameObject.GetComponent<PlayerAnimator>();
-    }
     protected override bool Attack(int attackCount = 1)
     {
+        playerAnimator = playerMovement.gameObject.GetComponent<PlayerAnimator>();
         if (!weaponStats.projectilePrefab)
         {
             currentCooldown = weaponData.BaseStats.cooldown;

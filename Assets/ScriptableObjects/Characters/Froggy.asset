@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 9197288525977167204, guid: 27b8fb6051e3752408d4743325b19ed5, type: 3}
   playerName: 'Froggy '
-  startingWeapon: {fileID: 11400000, guid: 624842a758c3e904889bcbb7f5b623d8, type: 2}
+  startingWeapon: {fileID: 11400000, guid: 24f762f06e727e749bd5ccf2b5d1dcb7, type: 2}
   playerAnimatorController: {fileID: 22100000, guid: cfeaba7eb30523e42a5aa23cd2700883, type: 2}
   stats:
     maxHealth: 1100

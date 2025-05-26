@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 5715392367707818601, guid: c34ce4bc30b002f49b9cecc43e53c7a9, type: 3}
   playerName: Veollo
-  startingWeapon: {fileID: 11400000, guid: 956294d9367c7584b9755f0f1d151801, type: 2}
+  startingWeapon: {fileID: 11400000, guid: e819dbc153f255d4e955fed26d5258ff, type: 2}
   playerAnimatorController: {fileID: 22100000, guid: 4e042020c33c4ea429284ba2c09814a0, type: 2}
   stats:
     maxHealth: 1000

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 8793639957104055765, guid: 91a2378caddc6ff4abe9cf51ae161e67, type: 3}
   playerName: Dezastro
-  startingWeapon: {fileID: 11400000, guid: 253c97b418a6c094784c2bdd3cf8d7b3, type: 2}
+  startingWeapon: {fileID: 11400000, guid: e819dbc153f255d4e955fed26d5258ff, type: 2}
   playerAnimatorController: {fileID: 22100000, guid: e619449c48259fb419fec712f4f3d958, type: 2}
   stats:
     maxHealth: 1000

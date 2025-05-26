@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -1874379516817139270, guid: e766e3625bf8aab4c9d093e20d5e5961, type: 3}
   playerName: Sinister
-  startingWeapon: {fileID: 11400000, guid: 24f762f06e727e749bd5ccf2b5d1dcb7, type: 2}
+  startingWeapon: {fileID: 11400000, guid: 956294d9367c7584b9755f0f1d151801, type: 2}
   playerAnimatorController: {fileID: 22100000, guid: e1e04ed1567fd8544865914d0440e352, type: 2}
   stats:
     maxHealth: 1400

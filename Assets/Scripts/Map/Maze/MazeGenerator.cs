@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class MazeGenerator
 {
-    public int Width = 50;
-    public int Height = 50;
+    public int Width = 26;
+    public int Height = 26;
 
     public Maze GenerateMaze()
     {

@@ -9,14 +9,16 @@ public class CharacterSelector : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
+         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(instance.gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 

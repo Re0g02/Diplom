@@ -15,12 +15,13 @@ MonoBehaviour:
   icon: {fileID: 8252832280146312153, guid: 07360fdd8e60dc844bc09f783d525d08, type: 3}
   maxLevel: 1
   evolutionData: []
+  behaviour: ProjectileWeapon
   baseStats:
     name: Sword
     description: Sword
     projectilePrefab: {fileID: 5734068742083105825, guid: 4b851099c9c4e524e9de88b0c01ee20b, type: 3}
     auraPrefab: {fileID: 0}
-    hitEffect: {fileID: 0}
+    hitEffect: {fileID: 2795220325498702903, guid: 4cae50739e0d4b249a3764307441c38d, type: 3}
     spawnVariance:
       serializedVersion: 2
       x: 1

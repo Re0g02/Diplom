@@ -17,13 +17,15 @@ public class LevelSelector : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(instance.gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
     void Start()
     {
-        SelectLevel(level[Random.Range(0,level.Length)]);
+        SelectLevel(level[Random.Range(0, level.Length)]);
     }
 
     public static LevelDataScriptableObject GetLevelData()
@@ -37,12 +39,13 @@ public class LevelSelector : MonoBehaviour
 
     public void SelectLevel(LevelDataScriptableObject level)
     {
-        levelStats = level;
+        instance.levelStats = level;
     }
 
     public void DestroySingleton()
     {
         instance = null;
+
         Destroy(gameObject);
     }
 }

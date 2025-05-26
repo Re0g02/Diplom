@@ -78,7 +78,7 @@ public class Projectile : WeaponEffect
             punching--;
             if (stats.hitEffect)
             {
-                Destroy(Instantiate(stats.hitEffect, transform.position, Quaternion.identity));
+                Instantiate(stats.hitEffect, other.transform.position, Quaternion.identity);
             }
         }
 

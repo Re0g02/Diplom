@@ -30,7 +30,7 @@ public abstract class Weapon : Item
             res.description = r.description ?? l.description;
             res.projectilePrefab = r.projectilePrefab ?? l.projectilePrefab;
             res.auraPrefab = r.auraPrefab ?? l.auraPrefab;
-            res.hitEffect = r.hitEffect ?? l.hitEffect;
+            res.hitEffect = l.hitEffect;
             res.spawnVariance = r.spawnVariance != null ? r.spawnVariance : l.spawnVariance;
             res.lifeTime = r.lifeTime + l.lifeTime;
             res.damage = r.damage + l.damage;
