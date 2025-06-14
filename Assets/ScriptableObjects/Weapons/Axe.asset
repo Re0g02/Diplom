@@ -18,7 +18,7 @@ MonoBehaviour:
   behaviour: AxeWeapon
   baseStats:
     name: Spear
-    description: Spear
+    description: Spear Weapon lvl.1
     projectilePrefab: {fileID: 4822672854660171540, guid: 976c28d67c2548742a0e764c774a9c65, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 2795220325498702903, guid: 4cae50739e0d4b249a3764307441c38d, type: 3}
@@ -29,18 +29,18 @@ MonoBehaviour:
       width: 0
       height: 0
     lifeTime: 3
-    damage: 50
+    damage: 30
     damageVariance: 3
     damageArea: 0
     speed: 10
-    cooldown: 2
+    cooldown: 3.5
     projectileInterval: 0.2
     knockback: 2
     projectileQuantity: 3
     maxProjectileQuantity: 99
     punching: 1
   levelUpStats:
-  - name: Spear lvl1
+  - name: Spear lvl.2
     description: +2 Projectile
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
       width: 0
       height: 0
     lifeTime: 0
-    damage: 12
+    damage: 0
     damageVariance: 0
     damageArea: 0
     speed: 0
@@ -62,8 +62,30 @@ MonoBehaviour:
     projectileQuantity: 2
     maxProjectileQuantity: 0
     punching: 0
-  - name: Spear lvl2
+  - name: Spear lvl.3
     description: +2 Projectile
+    projectilePrefab: {fileID: 0}
+    auraPrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifeTime: 0
+    damage: 0
+    damageVariance: 0
+    damageArea: 0
+    speed: 0
+    cooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    projectileQuantity: 2
+    maxProjectileQuantity: 0
+    punching: 0
+  - name: Spear lvl.4
+    description: +2 Punching
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -83,30 +105,8 @@ MonoBehaviour:
     knockback: 0
     projectileQuantity: 0
     maxProjectileQuantity: 0
-    punching: 0
-  - name: Spear lvl3
-    description: +2 Punching
-    projectilePrefab: {fileID: 0}
-    auraPrefab: {fileID: 0}
-    hitEffect: {fileID: 0}
-    spawnVariance:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    lifeTime: 0
-    damage: 20
-    damageVariance: 0
-    damageArea: 0
-    speed: 0
-    cooldown: 0
-    projectileInterval: 0
-    knockback: 0
-    projectileQuantity: 0
-    maxProjectileQuantity: 0
     punching: 2
-  - name: Spear lvl4
+  - name: Spear lvl.5
     description: -1 Cooldown
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}

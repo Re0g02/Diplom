@@ -16,6 +16,7 @@ MonoBehaviour:
   playerName: Veollo
   startingWeapon: {fileID: 11400000, guid: e819dbc153f255d4e955fed26d5258ff, type: 2}
   playerAnimatorController: {fileID: 22100000, guid: 4e042020c33c4ea429284ba2c09814a0, type: 2}
+  playerAbility: "Speed \u200B\u200Bincreases with each level by 0.1 (max 4)."
   stats:
     maxHealth: 1000
     recovery: 2

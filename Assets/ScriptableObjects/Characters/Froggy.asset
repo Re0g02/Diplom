@@ -16,6 +16,7 @@ MonoBehaviour:
   playerName: 'Froggy '
   startingWeapon: {fileID: 11400000, guid: 24f762f06e727e749bd5ccf2b5d1dcb7, type: 2}
   playerAnimatorController: {fileID: 22100000, guid: cfeaba7eb30523e42a5aa23cd2700883, type: 2}
+  playerAbility: The duration of invulnerability after receiving damage is longer.
   stats:
     maxHealth: 1100
     recovery: 6

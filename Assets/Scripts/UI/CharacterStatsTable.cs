@@ -13,6 +13,7 @@ public class CharacterStatsTable : MonoBehaviour
     [SerializeField] private TextMeshProUGUI mightValue;
     [SerializeField] private TextMeshProUGUI projectileSpeedValue;
     [SerializeField] private TextMeshProUGUI magnetValue;
+    [SerializeField] private TextMeshProUGUI abilityText;
 
     public void SetStatsTableInfo(PlayerDataScriptableObject playerData)
     {
@@ -25,5 +26,6 @@ public class CharacterStatsTable : MonoBehaviour
         mightValue.text = playerData.playerStats.might.ToString();
         projectileSpeedValue.text = playerData.StartingWeapon.BaseStats.speed.ToString();
         magnetValue.text = playerData.playerStats.magnet.ToString();
+        abilityText.text = playerData.PlayerAbility;
     }
 }

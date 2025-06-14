@@ -16,10 +16,11 @@ MonoBehaviour:
   playerName: Rize
   startingWeapon: {fileID: 11400000, guid: 253c97b418a6c094784c2bdd3cf8d7b3, type: 2}
   playerAnimatorController: {fileID: 22100000, guid: a768f1443b653834886b86950c3a1650, type: 2}
+  playerAbility: Outgoing damage has been increased. Incoming damage has been increased.
   stats:
     maxHealth: 800
     recovery: 0.5
     moveSpeed: 6
-    might: 1.2
+    might: 1.4
     speed: 1
     magnet: 1.5

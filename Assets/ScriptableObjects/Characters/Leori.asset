@@ -16,6 +16,7 @@ MonoBehaviour:
   playerName: Leori
   startingWeapon: {fileID: 11400000, guid: 24f762f06e727e749bd5ccf2b5d1dcb7, type: 2}
   playerAnimatorController: {fileID: 22100000, guid: 2d25de2daceb4504eaae69e0939e678c, type: 2}
+  playerAbility: The collection radius has been increased.
   stats:
     maxHealth: 900
     recovery: 0.2

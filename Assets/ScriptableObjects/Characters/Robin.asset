@@ -16,6 +16,7 @@ MonoBehaviour:
   playerName: Robin
   startingWeapon: {fileID: 11400000, guid: 956294d9367c7584b9755f0f1d151801, type: 2}
   playerAnimatorController: {fileID: 22100000, guid: e00d4122e9d963142892081e0d8a44ea, type: 2}
+  playerAbility: Has no special abilities.
   stats:
     maxHealth: 1000
     recovery: 0.2

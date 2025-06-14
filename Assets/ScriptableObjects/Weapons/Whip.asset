@@ -18,7 +18,7 @@ MonoBehaviour:
   behaviour: WhipWeapon
   baseStats:
     name: FishingRod
-    description: FishingRod
+    description: FishingRod Weapon lvl.1
     projectilePrefab: {fileID: 5002061358235537980, guid: 7bee2007d4b2cca4bbb52955c353d2f2, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 2795220325498702903, guid: 4cae50739e0d4b249a3764307441c38d, type: 3}
@@ -40,7 +40,7 @@ MonoBehaviour:
     maxProjectileQuantity: 99
     punching: 99
   levelUpStats:
-  - name: FishingRod lvl2
+  - name: FishingRod lvl.2
     description: +1 Projectile
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
     projectileQuantity: 1
     maxProjectileQuantity: 0
     punching: 0
-  - name: FishingRod lvl3
+  - name: FishingRod lvl.3
     description: +2 Projectile +5 Damage
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
     projectileQuantity: 2
     maxProjectileQuantity: 0
     punching: 0
-  - name: FishingRod lvl3
+  - name: FishingRod lvl.4
     description: +2 Projectile +10 Damage
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
     projectileQuantity: 1
     maxProjectileQuantity: 0
     punching: 0
-  - name: FishingRod lvl4
+  - name: FishingRod lvl.5
     description: +1 Projectile
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}

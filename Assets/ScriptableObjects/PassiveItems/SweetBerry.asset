@@ -26,7 +26,7 @@ MonoBehaviour:
       speed: 0
       magnet: 0
   growth:
-  - name: SweetBerry
+  - name: SweetBerry lvl.2
     description: +100 HP
     boosts:
       maxHealth: 100
@@ -35,7 +35,7 @@ MonoBehaviour:
       might: 0
       speed: 0
       magnet: 0
-  - name: SweetBerry
+  - name: SweetBerry lvl.3
     description: +100 HP
     boosts:
       maxHealth: 100
@@ -44,7 +44,7 @@ MonoBehaviour:
       might: 0
       speed: 0
       magnet: 0
-  - name: SweetBerry
+  - name: SweetBerry lvl.4
     description: +100 HP
     boosts:
       maxHealth: 100
@@ -53,7 +53,7 @@ MonoBehaviour:
       might: 0
       speed: 0
       magnet: 0
-  - name: SweetBerry
+  - name: SweetBerry lvl.5
     description: +100 HP
     boosts:
       maxHealth: 100

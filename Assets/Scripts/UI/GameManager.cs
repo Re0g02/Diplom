@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _playerTimerText;
     [SerializeField] private List<Image> _playerWeapons = new List<Image>(6);
     [SerializeField] private List<Image> _playerItems = new List<Image>(6);
+    [SerializeField] private TextMeshProUGUI mainText;
     private bool isGameOver = false;
 
     [Header("Play")]
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera referenceCamera;
     [SerializeField] private AudioClip lvlSound;
     [SerializeField] private AudioClip loseSound;
+    [SerializeField] private AudioClip winSound;
 
     private bool isChoosingUpdate = false;
     private AudioSource audioSource;
@@ -157,6 +159,16 @@ public class GameManager : MonoBehaviour
         audioSource.clip = loseSound;
         audioSource.Play();
         _playerTimerText.text = _timerText.text;
+        ChangeGameState(GameState.Gameover);
+    }
+
+    public void GameWin()
+    {
+        backgroundMusic.Stop();
+        audioSource.clip = winSound;
+        audioSource.Play();
+        _playerTimerText.text = _timerText.text;
+        mainText.text = "Stage is Clear!";
         ChangeGameState(GameState.Gameover);
     }
 

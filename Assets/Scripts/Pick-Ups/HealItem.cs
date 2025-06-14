@@ -11,4 +11,14 @@ public class HealItem : Pickup
         var player = FindFirstObjectByType<PlayerStats>();
         player.RestoreHealth(_healthToHeal);
     }
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<PlayerStats>())
+        {
+            var player = FindFirstObjectByType<PlayerStats>();
+            player.RestoreHealth(_healthToHeal);
+            Destroy(gameObject);
+        }
+    }
 }

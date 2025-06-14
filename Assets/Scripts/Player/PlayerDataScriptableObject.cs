@@ -8,10 +8,12 @@ public class PlayerDataScriptableObject : ScriptableObject
     [SerializeField] private string playerName;
     [SerializeField] private WeaponDataScriptableObject startingWeapon;
     [SerializeField] private AnimatorOverrideController playerAnimatorController;
+    [SerializeField] private string playerAbility;
     public Sprite Icon { get => icon; private set => icon = value; }
     public string Name { get => playerName; private set => playerName = value; }
     public WeaponDataScriptableObject StartingWeapon { get => startingWeapon; private set => startingWeapon = value; }
     public AnimatorOverrideController PlayerAnimatorController { get => playerAnimatorController; }
+    public string PlayerAbility { get => playerAbility; }
 
     [System.Serializable]
     public struct Stats

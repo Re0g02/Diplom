@@ -16,6 +16,7 @@ MonoBehaviour:
   playerName: Sinister
   startingWeapon: {fileID: 11400000, guid: 956294d9367c7584b9755f0f1d151801, type: 2}
   playerAnimatorController: {fileID: 22100000, guid: e1e04ed1567fd8544865914d0440e352, type: 2}
+  playerAbility: Damage taken has been reduced.
   stats:
     maxHealth: 1400
     recovery: 3

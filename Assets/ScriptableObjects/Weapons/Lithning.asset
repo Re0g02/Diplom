@@ -18,7 +18,7 @@ MonoBehaviour:
   behaviour: LightningWeapon
   baseStats:
     name: Lightning Rod
-    description: LightningRod
+    description: LightningRod Weapon lvl.1
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 1345418304321718537, guid: 48fbc949b6047b24691dd7f95e9439e6, type: 3}
@@ -40,7 +40,7 @@ MonoBehaviour:
     maxProjectileQuantity: 50
     punching: 0
   levelUpStats:
-  - name: LightningRod lvl2
+  - name: LightningRod lvl.2
     description: +2 Projectile +5 Damage
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
     projectileQuantity: 2
     maxProjectileQuantity: 0
     punching: 0
-  - name: LightningRod lvl3
+  - name: LightningRod lvl.3
     description: +2 Projectile +10 Damage
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
     projectileQuantity: 2
     maxProjectileQuantity: 0
     punching: 0
-  - name: LightningRod lvl4
+  - name: LightningRod lvl.4
     description: '+2 Projectile '
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
     projectileQuantity: 2
     maxProjectileQuantity: 0
     punching: 0
-  - name: LightningRod lvl5
+  - name: LightningRod lvl.5
     description: -2 Cooldown
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}

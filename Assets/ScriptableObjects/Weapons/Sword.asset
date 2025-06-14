@@ -18,7 +18,7 @@ MonoBehaviour:
   behaviour: ProjectileWeapon
   baseStats:
     name: Sword
-    description: Sword
+    description: Sword Weapon lvl.1
     projectilePrefab: {fileID: 5734068742083105825, guid: 4b851099c9c4e524e9de88b0c01ee20b, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 2795220325498702903, guid: 4cae50739e0d4b249a3764307441c38d, type: 3}
@@ -29,7 +29,7 @@ MonoBehaviour:
       width: -1
       height: -1
     lifeTime: 3
-    damage: 11.5
+    damage: 15
     damageVariance: 2
     damageArea: 1
     speed: 10

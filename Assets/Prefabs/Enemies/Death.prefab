@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2949637361458870369}
   - component: {fileID: 8080586063595982652}
   m_Layer: 9
-  m_Name: Enemy (10)
+  m_Name: Death
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1324305199
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 21
   m_Sprite: {fileID: 9083683855015346827, guid: 56a2da135c657e540bbddf537e651b8d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2872a3035d3464fa1e76a5d6e6236e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyStats: {fileID: 11400000, guid: 8821e76d0ca3d8d4bbac74c6e2f03c57, type: 2}
+  _enemyStats: {fileID: 11400000, guid: db7f8301dd13c224e90125f4ccf0bbc6, type: 2}
   relocateDistance: 50
   currentMoveSpeed: 0
   currentHealth: 0
@@ -197,7 +197,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0655725, y: -0.31275272}
+  m_Offset: {x: 0.13612032, y: -0.33108878}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.34603512, y: 0.43784973}
@@ -207,7 +207,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5976577, y: 2.2781296}
+  m_Size: {x: 0.58308125, y: 1.1657596}
   m_EdgeRadius: 0
 --- !u!50 &8080586063595982652
 Rigidbody2D:

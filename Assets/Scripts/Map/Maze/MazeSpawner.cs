@@ -12,8 +12,8 @@ public class MazeSpawner : MonoBehaviour
         CellPrefab = LevelSelector.GetLevelData().CellPrefab;
         MazeGenerator generator = new MazeGenerator();
         maze = generator.GenerateMaze();
-        var mazeOffsetX = CellSize.x * maze.cells.GetLength(0) / 2;
-        var mazeOffsetY = CellSize.y * maze.cells.GetLength(1) / 2;
+        var mazeOffsetX = 0;
+        var mazeOffsetY = 0;
 
         for (int x = 0; x < maze.cells.GetLength(0); x++)
         {

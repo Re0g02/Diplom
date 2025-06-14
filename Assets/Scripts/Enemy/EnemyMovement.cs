@@ -3,20 +3,20 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
 
-    private EnemyStats enemy;
-    private Transform playerTransform;
-    private Vector2 knockbackVelocity;
-    private float knockbackDuration;
-    private Rigidbody2D enemyRB;
+    protected EnemyStats enemy;
+    protected Transform playerTransform;
+    protected Vector2 knockbackVelocity;
+    protected float knockbackDuration;
+    protected Rigidbody2D enemyRB;
 
-    void Start()
+    protected void Start()
     {
         playerTransform = FindFirstObjectByType<PlayerMovement>().transform;
         enemy = GetComponent<EnemyStats>();
         enemyRB = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (knockbackDuration > 0)
         {

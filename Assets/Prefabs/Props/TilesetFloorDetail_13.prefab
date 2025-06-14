@@ -164,4 +164,10 @@ MonoBehaviour:
   drops:
   - name: Heal
     prefab: {fileID: 5115089154171197700, guid: 437b9f7050305b146b43dadd52aeec26, type: 3}
-    dropRate: 50
+    dropRate: 40
+  - name: Magnet
+    prefab: {fileID: 5480989758029223326, guid: 34b31da056a9e4d499fe88c8dded3df4, type: 3}
+    dropRate: 40
+  - name: Shield
+    prefab: {fileID: 5480989758029223326, guid: bee49f1d46bc2494191ed3ba60026e2e, type: 3}
+    dropRate: 40

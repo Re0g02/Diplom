@@ -18,7 +18,7 @@ MonoBehaviour:
   behaviour: AuraWeapon
   baseStats:
     name: Garlic
-    description: Garlic Weapon
+    description: Garlic Weapon lvl.1
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 6154285043322190707, guid: e4c26d716c2976f4ca8d6642a9068051, type: 3}
     hitEffect: {fileID: 0}
@@ -29,7 +29,7 @@ MonoBehaviour:
       width: 0
       height: 0
     lifeTime: 0
-    damage: 5
+    damage: 10
     damageVariance: 1
     damageArea: 3
     speed: 0

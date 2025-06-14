@@ -16,6 +16,7 @@ MonoBehaviour:
   playerName: Wolatro
   startingWeapon: {fileID: 11400000, guid: 624842a758c3e904889bcbb7f5b623d8, type: 2}
   playerAnimatorController: {fileID: 22100000, guid: d0678175d3ec16d449faec8b6b763a7e, type: 2}
+  playerAbility: The jerk length is longer.
   stats:
     maxHealth: 1500
     recovery: 5

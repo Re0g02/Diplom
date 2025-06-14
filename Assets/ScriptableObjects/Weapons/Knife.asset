@@ -28,7 +28,7 @@ MonoBehaviour:
   behaviour: ProjectileWeapon
   baseStats:
     name: Knife
-    description: Knife lvl.1
+    description: Knife Weapon lvl.1
     projectilePrefab: {fileID: 5734068742083105825, guid: ce214f10a6b1d7b4ebcbe462c28ae3f1, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 2795220325498702903, guid: 4cae50739e0d4b249a3764307441c38d, type: 3}

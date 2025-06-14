@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -214,6 +215,7 @@ public class PlayerStats : MonoBehaviour
     private PlayerInventory inventory;
     [SerializeField] private int weaponIndex;
     [SerializeField] private int passiveItemIndex;
+    [SerializeField] private GameObject playerShield;
 
     void Awake()
     {
@@ -307,6 +309,21 @@ public class PlayerStats : MonoBehaviour
                 Kill();
             }
         }
+    }
+
+
+    IEnumerator ActivateShield()
+    {
+        isInvincible = true;
+        invincibilityTimer = 10f;
+        playerShield.SetActive(true);
+        yield return new WaitForSeconds(10f);
+        playerShield.SetActive(false);
+    }
+
+    public void TakeShield()
+    {
+        StartCoroutine(ActivateShield());
     }
 
     public void Kill()
