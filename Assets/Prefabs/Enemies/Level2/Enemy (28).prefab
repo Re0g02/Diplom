@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyStats: {fileID: 11400000, guid: afa1576b13d307249a00b528ac2baa2a, type: 2}
-  relocateDistance: 50
+  relocateDistance: 30
   currentMoveSpeed: 0
   currentHealth: 0
   currentDamage: 0

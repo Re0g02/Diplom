@@ -17,7 +17,7 @@ MonoBehaviour:
   evolutionData: []
   baseStats:
     name: Boots
-    description: Boost MoveSpeed
+    description: +1 MS
     boosts:
       maxHealth: 0
       recovery: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
       magnet: 0
   growth:
   - name: Boots lvl.2
-    description: +1 ms
+    description: +1 MS
     boosts:
       maxHealth: 0
       recovery: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
       speed: 0
       magnet: 0
   - name: Boots lvl.3
-    description: +2ms
+    description: +2 MS
     boosts:
       maxHealth: 0
       recovery: 0

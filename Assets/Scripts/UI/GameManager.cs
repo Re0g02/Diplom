@@ -105,7 +105,6 @@ public class GameManager : MonoBehaviour
                     StartLevelUp();
                 break;
             default:
-                Debug.Log("Unprocessable state");
                 break;
         }
     }
@@ -168,7 +167,7 @@ public class GameManager : MonoBehaviour
         audioSource.clip = winSound;
         audioSource.Play();
         _playerTimerText.text = _timerText.text;
-        mainText.text = "Stage is Clear!";
+        mainText.text = "You Win!";
         ChangeGameState(GameState.Gameover);
     }
 

@@ -17,8 +17,8 @@ MonoBehaviour:
   evolutionData: []
   behaviour: LightningWeapon
   baseStats:
-    name: Lightning Rod
-    description: LightningRod Weapon lvl.1
+    name: Lightning Rod  lvl.1
+    description: LightningRod Weapon
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 1345418304321718537, guid: 48fbc949b6047b24691dd7f95e9439e6, type: 3}

@@ -17,7 +17,7 @@ MonoBehaviour:
   evolutionData: []
   baseStats:
     name: Magnet
-    description: Boost Magnet
+    description: +0.2 Magnet
     boosts:
       maxHealth: 0
       recovery: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
       magnet: 0.2
   growth:
   - name: Magnet lvl.2
-    description: +0.2 magnet
+    description: +0.2 Magnet
     boosts:
       maxHealth: 0
       recovery: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
       speed: 0
       magnet: 0.2
   - name: Magnet lvl.3
-    description: +0.2 magnet
+    description: +0.2 Magnet
     boosts:
       maxHealth: 0
       recovery: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
       speed: 0
       magnet: 0.2
   - name: Magnet lvl.4
-    description: +0.2 magnet
+    description: +0.2 Magnet
     boosts:
       maxHealth: 0
       recovery: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
       speed: 0
       magnet: 0.2
   - name: Magnet lvl.5
-    description: +0.2 magnet
+    description: +0.2 Magnet
     boosts:
       maxHealth: 0
       recovery: 0

@@ -3396,9 +3396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Swamp
-
-'
+  m_text: Nuclear war
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ac9623a0d2ca8147af738739784372f, type: 2}
   m_sharedMaterial: {fileID: -3418331346204649669, guid: 1ac9623a0d2ca8147af738739784372f, type: 2}
@@ -3425,8 +3423,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 38
+  m_fontSizeBase: 38
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8962,7 +8960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Desert
+  m_text: 'Asteroid fall
 
 '
   m_isRightToLeft: 0
@@ -8991,8 +8989,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 38
+  m_fontSizeBase: 38
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10564,7 +10562,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Field
+  m_text: 'Biological disaster
 
 '
   m_isRightToLeft: 0
@@ -10593,8 +10591,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 38.13
+  m_fontSizeBase: 38.13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -17,8 +17,8 @@ MonoBehaviour:
   evolutionData: []
   behaviour: AuraWeapon
   baseStats:
-    name: Garlic
-    description: Garlic Weapon lvl.1
+    name: Garlic lvl.1
+    description: 'Garlic Weapon '
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 6154285043322190707, guid: e4c26d716c2976f4ca8d6642a9068051, type: 3}
     hitEffect: {fileID: 0}

@@ -17,8 +17,8 @@ MonoBehaviour:
   evolutionData: []
   behaviour: ProjectileWeapon
   baseStats:
-    name: Sword
-    description: Sword Weapon lvl.1
+    name: Sword lvl.1
+    description: Sword Weapon
     projectilePrefab: {fileID: 5734068742083105825, guid: 4b851099c9c4e524e9de88b0c01ee20b, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 2795220325498702903, guid: 4cae50739e0d4b249a3764307441c38d, type: 3}

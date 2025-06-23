@@ -17,8 +17,8 @@ MonoBehaviour:
   evolutionData: []
   behaviour: AxeWeapon
   baseStats:
-    name: Spear
-    description: Spear Weapon lvl.1
+    name: Spear lvl.1
+    description: Spear Weapon
     projectilePrefab: {fileID: 4822672854660171540, guid: 976c28d67c2548742a0e764c774a9c65, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 2795220325498702903, guid: 4cae50739e0d4b249a3764307441c38d, type: 3}
@@ -41,7 +41,7 @@ MonoBehaviour:
     punching: 1
   levelUpStats:
   - name: Spear lvl.2
-    description: +2 Projectile
+    description: +1 Projectile
     projectilePrefab: {fileID: 0}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
     cooldown: 0
     projectileInterval: 0
     knockback: 0
-    projectileQuantity: 2
+    projectileQuantity: 1
     maxProjectileQuantity: 0
     punching: 0
   - name: Spear lvl.3

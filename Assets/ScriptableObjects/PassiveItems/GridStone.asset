@@ -21,13 +21,13 @@ MonoBehaviour:
     evolutionLevel: 1
     catalysts:
     - itemType: {fileID: 11400000, guid: 956294d9367c7584b9755f0f1d151801, type: 2}
-      level: 5
+      level: 3
     outcome:
       itemType: {fileID: 11400000, guid: 327d003e2052eca40b484c5f37779b92, type: 2}
       level: 1
   baseStats:
     name: GridStone
-    description: Boost Might
+    description: +0.5 Might
     boosts:
       maxHealth: 0
       recovery: 0

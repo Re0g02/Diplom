@@ -24,7 +24,7 @@ public class FallingItem : MonoBehaviour
         {
             var item = Instantiate(itemPrefab, new Vector3(curentOffset + Random.Range(-1.2f, 1.2f), 7, 0), Quaternion.identity);
             item.GetComponent<SpriteRenderer>().sprite = itemList[Random.Range(0, itemList.Count)];
-            item.GetComponent<Rigidbody2D>().linearVelocityY = -Random.Range(2.8f,3.2f);
+            item.GetComponent<Rigidbody2D>().linearVelocityY = -Random.Range(2.8f,4.8f);
             Destroy(item, 5f);
             currentCD = spawnCD;
             curentOffset += spawnInterval;

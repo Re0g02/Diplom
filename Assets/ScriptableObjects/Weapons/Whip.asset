@@ -17,8 +17,8 @@ MonoBehaviour:
   evolutionData: []
   behaviour: WhipWeapon
   baseStats:
-    name: FishingRod
-    description: FishingRod Weapon lvl.1
+    name: FishingRod lvl.1
+    description: FishingRod Weapon
     projectilePrefab: {fileID: 5002061358235537980, guid: 7bee2007d4b2cca4bbb52955c353d2f2, type: 3}
     auraPrefab: {fileID: 0}
     hitEffect: {fileID: 2795220325498702903, guid: 4cae50739e0d4b249a3764307441c38d, type: 3}

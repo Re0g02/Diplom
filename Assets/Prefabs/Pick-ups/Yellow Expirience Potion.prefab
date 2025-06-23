@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5585e815252822b44b570dd18ec57934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _expirienceGiven: 150
+  _expirienceGiven: 250
   expSound: {fileID: 3904116100276813589, guid: cec4132f4e5d6de449f38e5376a22f82, type: 3}
 --- !u!50 &-5731384602797955549
 Rigidbody2D:
